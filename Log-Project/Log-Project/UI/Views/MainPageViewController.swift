@@ -14,7 +14,7 @@ class MainPageViewController: UIViewController {
     var coinList = [Coin]()
     var viewModel = MainPageViewModel()
     let logEntry = Log(logLevel: .info, moduleName: "Test", logMessage: "Bu bir deneme logu")
-    
+    let logEntry_2 = Log(logLevel: .error, moduleName: "Test_2", logMessage: "Bu bir deneme logu")
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -25,7 +25,9 @@ class MainPageViewController: UIViewController {
             DispatchQueue.main.async {
                 self?.coinList = value!
                 self?.coinTableView.reloadData()
-                Logger.shared.printLog(logFile: self!.logEntry)
+                //Logger.shared.printLog(logFile: self!.logEntry)
+                Logger.shared.log(logFile: self!.logEntry)
+                Logger.shared.log(logFile: self!.logEntry_2)
             }
         }
     }

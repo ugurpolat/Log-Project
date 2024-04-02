@@ -12,4 +12,3 @@ protocol APIClientProtocol {
     func fetch (url: URL, completion: @escaping(Result<[Coin], CoinError>) -> ())
 }
 
-// test

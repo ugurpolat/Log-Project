@@ -17,7 +17,7 @@ protocol LogLayer: AnyObject {
 
 extension LogLayer {
     // Provide a default implementation for general logging that decides the logging strategy
-        func log(_ logFile: Log) {
+        func log(logFile: Log) {
             // Example logic: always print debug and info levels; save errors to server and local
             switch logFile.logLevel {
             case .debug, .info:
