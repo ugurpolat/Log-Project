@@ -20,6 +20,15 @@
 		314905422BB2F3D600567802 /* CoinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314905412BB2F3D600567802 /* CoinCell.swift */; };
 		314905452BB350C200567802 /* MainPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314905442BB350C200567802 /* MainPageViewModel.swift */; };
 		3172468C2BB3670D00991840 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3172468B2BB3670D00991840 /* Observable.swift */; };
+		317DC8BA2BBEB6EE006AA1A0 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 317DC8B12BBEB6EE006AA1A0 /* FMDatabase.m */; };
+		317DC8BB2BBEB6EE006AA1A0 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 317DC8B22BBEB6EE006AA1A0 /* FMDatabasePool.m */; };
+		317DC8BC2BBEB6EE006AA1A0 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 317DC8B32BBEB6EE006AA1A0 /* FMResultSet.m */; };
+		317DC8BD2BBEB6EE006AA1A0 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 317DC8B62BBEB6EE006AA1A0 /* FMDatabaseAdditions.m */; };
+		317DC8BE2BBEB6EE006AA1A0 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 317DC8B72BBEB6EE006AA1A0 /* FMDatabaseQueue.m */; };
+		317DC8C22BBEB978006AA1A0 /* LogPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317DC8C12BBEB978006AA1A0 /* LogPageViewController.swift */; };
+		317DC8C42BBEB9B1006AA1A0 /* LogPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317DC8C32BBEB9B1006AA1A0 /* LogPageViewModel.swift */; };
+		317DC8C72BBEE743006AA1A0 /* SQLiteClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317DC8C62BBEE743006AA1A0 /* SQLiteClient.swift */; };
+		317DC8C92BBF0E84006AA1A0 /* log.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 317DC8C82BBF0E84006AA1A0 /* log.sqlite */; };
 		31FAAD6A2BBC117000878D9D /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FAAD692BBC117000878D9D /* Log.swift */; };
 		31FAAD6C2BBC140900878D9D /* LogLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FAAD6B2BBC140900878D9D /* LogLayer.swift */; };
 		31FAAD6F2BBC414100878D9D /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FAAD6E2BBC414100878D9D /* Logger.swift */; };
@@ -42,6 +51,23 @@
 		314905412BB2F3D600567802 /* CoinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCell.swift; sourceTree = "<group>"; };
 		314905442BB350C200567802 /* MainPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewModel.swift; sourceTree = "<group>"; };
 		3172468B2BB3670D00991840 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		317DC8AD2BBEB69C006AA1A0 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		317DC8AE2BBEB6ED006AA1A0 /* Log-Project-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Log-Project-Bridging-Header.h"; sourceTree = "<group>"; };
+		317DC8AF2BBEB6EE006AA1A0 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		317DC8B02BBEB6EE006AA1A0 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		317DC8B12BBEB6EE006AA1A0 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		317DC8B22BBEB6EE006AA1A0 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		317DC8B32BBEB6EE006AA1A0 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		317DC8B42BBEB6EE006AA1A0 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		317DC8B52BBEB6EE006AA1A0 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		317DC8B62BBEB6EE006AA1A0 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		317DC8B72BBEB6EE006AA1A0 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		317DC8B82BBEB6EE006AA1A0 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		317DC8B92BBEB6EE006AA1A0 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		317DC8C12BBEB978006AA1A0 /* LogPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPageViewController.swift; sourceTree = "<group>"; };
+		317DC8C32BBEB9B1006AA1A0 /* LogPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPageViewModel.swift; sourceTree = "<group>"; };
+		317DC8C62BBEE743006AA1A0 /* SQLiteClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteClient.swift; sourceTree = "<group>"; };
+		317DC8C82BBF0E84006AA1A0 /* log.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = log.sqlite; path = ../../../log.sqlite; sourceTree = "<group>"; };
 		31FAAD692BBC117000878D9D /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		31FAAD6B2BBC140900878D9D /* LogLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogLayer.swift; sourceTree = "<group>"; };
 		31FAAD6E2BBC414100878D9D /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -64,6 +90,7 @@
 			children = (
 				314905202BB2ECFC00567802 /* Log-Project */,
 				3149051F2BB2ECFC00567802 /* Products */,
+				317DC8AC2BBEB69C006AA1A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,6 +105,7 @@
 		314905202BB2ECFC00567802 /* Log-Project */ = {
 			isa = PBXGroup;
 			children = (
+				317DC8C52BBEE702006AA1A0 /* LocalNetworking */,
 				314905372BB2ED8200567802 /* Models */,
 				31FAAD732BBC4FEE00878D9D /* Utilities */,
 				31FAAD722BBC4E9E00878D9D /* Networking */,
@@ -89,6 +117,19 @@
 				3149052A2BB2ECFC00567802 /* Assets.xcassets */,
 				3149052C2BB2ECFC00567802 /* LaunchScreen.storyboard */,
 				3149052F2BB2ECFC00567802 /* Info.plist */,
+				317DC8B82BBEB6EE006AA1A0 /* FMDatabase.h */,
+				317DC8B12BBEB6EE006AA1A0 /* FMDatabase.m */,
+				317DC8B42BBEB6EE006AA1A0 /* FMDatabaseAdditions.h */,
+				317DC8B62BBEB6EE006AA1A0 /* FMDatabaseAdditions.m */,
+				317DC8B52BBEB6EE006AA1A0 /* FMDatabasePool.h */,
+				317DC8B22BBEB6EE006AA1A0 /* FMDatabasePool.m */,
+				317DC8B92BBEB6EE006AA1A0 /* FMDatabaseQueue.h */,
+				317DC8B72BBEB6EE006AA1A0 /* FMDatabaseQueue.m */,
+				317DC8AF2BBEB6EE006AA1A0 /* FMDB.h */,
+				317DC8B02BBEB6EE006AA1A0 /* FMResultSet.h */,
+				317DC8B32BBEB6EE006AA1A0 /* FMResultSet.m */,
+				317DC8AE2BBEB6ED006AA1A0 /* Log-Project-Bridging-Header.h */,
+				317DC8C82BBF0E84006AA1A0 /* log.sqlite */,
 			);
 			path = "Log-Project";
 			sourceTree = "<group>";
@@ -119,6 +160,7 @@
 			children = (
 				314905252BB2ECFC00567802 /* MainPageViewController.swift */,
 				314905392BB2EDE300567802 /* DetailViewController.swift */,
+				317DC8C12BBEB978006AA1A0 /* LogPageViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -135,8 +177,25 @@
 			isa = PBXGroup;
 			children = (
 				314905442BB350C200567802 /* MainPageViewModel.swift */,
+				317DC8C32BBEB9B1006AA1A0 /* LogPageViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		317DC8AC2BBEB69C006AA1A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				317DC8AD2BBEB69C006AA1A0 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		317DC8C52BBEE702006AA1A0 /* LocalNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				317DC8C62BBEE743006AA1A0 /* SQLiteClient.swift */,
+			);
+			path = LocalNetworking;
 			sourceTree = "<group>";
 		};
 		31FAAD682BBC115600878D9D /* Helpers */ = {
@@ -213,6 +272,7 @@
 				TargetAttributes = {
 					3149051D2BB2ECFC00567802 = {
 						CreatedOnToolsVersion = 15.2;
+						LastSwiftMigration = 1520;
 					};
 				};
 			};
@@ -239,6 +299,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				317DC8C92BBF0E84006AA1A0 /* log.sqlite in Resources */,
 				3149052E2BB2ECFC00567802 /* LaunchScreen.storyboard in Resources */,
 				3149052B2BB2ECFC00567802 /* Assets.xcassets in Resources */,
 				314905292BB2ECFC00567802 /* Main.storyboard in Resources */,
@@ -252,18 +313,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				317DC8C22BBEB978006AA1A0 /* LogPageViewController.swift in Sources */,
 				31FAAD6C2BBC140900878D9D /* LogLayer.swift in Sources */,
 				314905452BB350C200567802 /* MainPageViewModel.swift in Sources */,
 				3149053E2BB2F04000567802 /* CoinList.swift in Sources */,
+				317DC8BA2BBEB6EE006AA1A0 /* FMDatabase.m in Sources */,
 				31FAAD6A2BBC117000878D9D /* Log.swift in Sources */,
+				317DC8BD2BBEB6EE006AA1A0 /* FMDatabaseAdditions.m in Sources */,
 				314905262BB2ECFC00567802 /* MainPageViewController.swift in Sources */,
+				317DC8C72BBEE743006AA1A0 /* SQLiteClient.swift in Sources */,
 				314905222BB2ECFC00567802 /* AppDelegate.swift in Sources */,
 				3172468C2BB3670D00991840 /* Observable.swift in Sources */,
+				317DC8BE2BBEB6EE006AA1A0 /* FMDatabaseQueue.m in Sources */,
 				314905242BB2ECFC00567802 /* SceneDelegate.swift in Sources */,
 				3149053C2BB2EE6800567802 /* Coin.swift in Sources */,
 				31FAAD6F2BBC414100878D9D /* Logger.swift in Sources */,
 				314905422BB2F3D600567802 /* CoinCell.swift in Sources */,
 				313B4CB42BB6B0B00011334D /* APIClient.swift in Sources */,
+				317DC8BC2BBEB6EE006AA1A0 /* FMResultSet.m in Sources */,
+				317DC8C42BBEB9B1006AA1A0 /* LogPageViewModel.swift in Sources */,
+				317DC8BB2BBEB6EE006AA1A0 /* FMDatabasePool.m in Sources */,
 				31FAAD752BBC50E700878D9D /* APIClientProtocol.swift in Sources */,
 				3149053A2BB2EDE300567802 /* DetailViewController.swift in Sources */,
 			);
@@ -415,6 +484,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 333C6ALC74;
@@ -433,6 +503,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ugurpolat.Log-Project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Log-Project/Log-Project-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -443,6 +515,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 333C6ALC74;
@@ -461,6 +534,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ugurpolat.Log-Project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Log-Project/Log-Project-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

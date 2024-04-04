@@ -67,7 +67,13 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MjI-lP-h7g" secondAttribute="trailing" id="vEZ-jF-BYm"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Coins" id="mY2-iE-8vA"/>
+                    <navigationItem key="navigationItem" title="Coins" id="mY2-iE-8vA">
+                        <barButtonItem key="rightBarButtonItem" title="Logs" id="3Jc-8q-t3t">
+                            <connections>
+                                <segue destination="p7r-5x-UFy" kind="show" id="LLm-Np-LNr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="coinTableView" destination="MjI-lP-h7g" id="kUH-4w-cfp"/>
                         <segue destination="Qug-aF-kqa" kind="show" identifier="toCoinDetail" id="rIm-BH-Tui"/>
@@ -76,6 +82,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1055.7251908396945" y="-2.1126760563380285"/>
+        </scene>
+        <!--Logs-->
+        <scene sceneID="mZu-0I-JUO">
+            <objects>
+                <viewController id="p7r-5x-UFy" customClass="LogPageViewController" customModule="Log_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8lS-cB-hTc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3p-Aa-CJm">
+                                <rect key="frame" x="175" y="416" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="o3p-eA-tWd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Logs" id="IR5-qG-9Rw"/>
+                    <connections>
+                        <outlet property="labelLog" destination="O3p-Aa-CJm" id="Fku-jI-s3r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T2f-YV-X1I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1911" y="-738"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="bIe-qA-pGK">

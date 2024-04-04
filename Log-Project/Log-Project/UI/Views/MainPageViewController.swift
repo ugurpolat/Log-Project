@@ -13,21 +13,21 @@ class MainPageViewController: UIViewController {
     
     var coinList = [Coin]()
     var viewModel = MainPageViewModel()
-    let logEntry = Log(logLevel: .info, moduleName: "Test", logMessage: "Bu bir deneme logu")
-    let logEntry_2 = Log(logLevel: .error, moduleName: "Test_2", logMessage: "Bu bir deneme logu")
+   
+    //let logEntry_2 = Log(id: UUID(), logLevel: .error, moduleName: "Test_2", logMessage: "Bu bir deneme logu")
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
         coinTableView.delegate = self
         coinTableView.dataSource = self
+        
+        SQLiteClient().addLog(log_timestamp: "test", log_level: "test", log_moduleName: "test", log_message: "test")
         
         viewModel.coinList.bind { [weak self] value in
             DispatchQueue.main.async {
                 self?.coinList = value!
                 self?.coinTableView.reloadData()
-                //Logger.shared.printLog(logFile: self!.logEntry)
-                Logger.shared.log(logFile: self!.logEntry)
-                Logger.shared.log(logFile: self!.logEntry_2)
+
             }
         }
     }

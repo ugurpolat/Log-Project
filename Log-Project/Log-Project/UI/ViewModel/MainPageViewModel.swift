@@ -9,10 +9,7 @@ import Foundation
 
 class MainPageViewModel {
     
-    
     var coinList:Observable<[Coin]> = Observable()
-    
-    //var result:(([Coin])->Void)?
     
     func getCoins() {
         

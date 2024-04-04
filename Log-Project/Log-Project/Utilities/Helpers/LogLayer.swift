@@ -19,10 +19,10 @@ extension LogLayer {
     // Provide a default implementation for general logging that decides the logging strategy
         func log(logFile: Log) {
             // Example logic: always print debug and info levels; save errors to server and local
-            switch logFile.logLevel {
-            case .debug, .info:
+            switch logFile.log_level {
+            case "debug", "info":
                 printLog(logFile:logFile)
-            case .error:
+            case "error":
                 logSaveServer(logFile:logFile, completion: nil)
                 logSaveLocal(logFile:logFile, completion: nil)
             default:
