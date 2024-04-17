@@ -91,20 +91,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3p-Aa-CJm">
-                                <rect key="frame" x="175" y="416" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="HIZ-JA-Agi">
+                                <rect key="frame" x="0.0" y="155" width="393" height="663"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LogCell" rowHeight="100" id="vYa-0g-wAu" customClass="LogCell" customModule="Log_Project" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vYa-0g-wAu" id="mPX-Hy-bFH">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="2NH-JR-H8l">
+                                                    <rect key="frame" x="36" y="26" width="118" height="48"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Log Level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSW-Or-7TK">
+                                                            <rect key="frame" x="0.0" y="0.0" width="118" height="11.666666666666666"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label Log Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AwO-4O-ENk">
+                                                            <rect key="frame" x="0.0" y="27.666666666666664" width="118" height="20.333333333333336"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="2NH-JR-H8l" secondAttribute="bottom" constant="15" id="0fh-gN-rq1"/>
+                                                <constraint firstItem="2NH-JR-H8l" firstAttribute="top" secondItem="mPX-Hy-bFH" secondAttribute="topMargin" constant="15" id="EWx-IR-qXS"/>
+                                                <constraint firstItem="2NH-JR-H8l" firstAttribute="centerY" secondItem="mPX-Hy-bFH" secondAttribute="centerY" id="P6K-bA-N6j"/>
+                                                <constraint firstItem="2NH-JR-H8l" firstAttribute="leading" secondItem="mPX-Hy-bFH" secondAttribute="leadingMargin" constant="16" id="s6K-UI-otx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="labelLogLevel" destination="NSW-Or-7TK" id="bLh-QH-fdN"/>
+                                            <outlet property="labelLogTime" destination="AwO-4O-ENk" id="GJ1-UV-qqW"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="o3p-eA-tWd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="o3p-eA-tWd" firstAttribute="trailing" secondItem="HIZ-JA-Agi" secondAttribute="trailing" id="1uy-kL-bEi"/>
+                            <constraint firstItem="HIZ-JA-Agi" firstAttribute="leading" secondItem="o3p-eA-tWd" secondAttribute="leading" id="4OO-i6-O0g"/>
+                            <constraint firstItem="HIZ-JA-Agi" firstAttribute="top" secondItem="o3p-eA-tWd" secondAttribute="top" id="Q0B-jb-SU4"/>
+                            <constraint firstItem="o3p-eA-tWd" firstAttribute="bottom" secondItem="HIZ-JA-Agi" secondAttribute="bottom" id="Tdd-8j-rMY"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Logs" id="IR5-qG-9Rw"/>
                     <connections>
-                        <outlet property="labelLog" destination="O3p-Aa-CJm" id="Fku-jI-s3r"/>
+                        <outlet property="logTableView" destination="HIZ-JA-Agi" id="b2h-kn-OJm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T2f-YV-X1I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -120,7 +162,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="HNv-OQ-I6S">
-                                <rect key="frame" x="32" y="171" width="53" height="374"/>
+                                <rect key="frame" x="4" y="171" width="357" height="374"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0F5-0a-wjQ">
                                         <rect key="frame" x="0.0" y="0.0" width="53" height="24"/>
@@ -195,7 +237,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="HNv-OQ-I6S" firstAttribute="top" secondItem="JHC-S8-Gmz" secondAttribute="top" constant="16" id="EWq-WJ-ymO"/>
-                            <constraint firstItem="HNv-OQ-I6S" firstAttribute="leading" secondItem="JHC-S8-Gmz" secondAttribute="leading" constant="32" id="T1O-jc-Ukx"/>
+                            <constraint firstItem="JHC-S8-Gmz" firstAttribute="trailing" secondItem="HNv-OQ-I6S" secondAttribute="trailing" constant="32" id="Qsx-K5-FYt"/>
+                            <constraint firstItem="HNv-OQ-I6S" firstAttribute="leading" secondItem="JHC-S8-Gmz" secondAttribute="leading" constant="4" id="mHM-ry-0fG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iiV-OC-DW8"/>

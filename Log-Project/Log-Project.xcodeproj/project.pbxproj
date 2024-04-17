@@ -29,6 +29,7 @@
 		317DC8C42BBEB9B1006AA1A0 /* LogPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317DC8C32BBEB9B1006AA1A0 /* LogPageViewModel.swift */; };
 		317DC8C72BBEE743006AA1A0 /* SQLiteClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317DC8C62BBEE743006AA1A0 /* SQLiteClient.swift */; };
 		317DC8C92BBF0E84006AA1A0 /* log.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 317DC8C82BBF0E84006AA1A0 /* log.sqlite */; };
+		31CAB5262BD05CAF00B82081 /* LogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CAB5252BD05CAF00B82081 /* LogCell.swift */; };
 		31FAAD6A2BBC117000878D9D /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FAAD692BBC117000878D9D /* Log.swift */; };
 		31FAAD6C2BBC140900878D9D /* LogLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FAAD6B2BBC140900878D9D /* LogLayer.swift */; };
 		31FAAD6F2BBC414100878D9D /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FAAD6E2BBC414100878D9D /* Logger.swift */; };
@@ -68,6 +69,7 @@
 		317DC8C32BBEB9B1006AA1A0 /* LogPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPageViewModel.swift; sourceTree = "<group>"; };
 		317DC8C62BBEE743006AA1A0 /* SQLiteClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteClient.swift; sourceTree = "<group>"; };
 		317DC8C82BBF0E84006AA1A0 /* log.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = log.sqlite; path = ../../../log.sqlite; sourceTree = "<group>"; };
+		31CAB5252BD05CAF00B82081 /* LogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCell.swift; sourceTree = "<group>"; };
 		31FAAD692BBC117000878D9D /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		31FAAD6B2BBC140900878D9D /* LogLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogLayer.swift; sourceTree = "<group>"; };
 		31FAAD6E2BBC414100878D9D /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				314905412BB2F3D600567802 /* CoinCell.swift */,
+				31CAB5252BD05CAF00B82081 /* LogCell.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				3149053E2BB2F04000567802 /* CoinList.swift in Sources */,
 				317DC8BA2BBEB6EE006AA1A0 /* FMDatabase.m in Sources */,
 				31FAAD6A2BBC117000878D9D /* Log.swift in Sources */,
+				31CAB5262BD05CAF00B82081 /* LogCell.swift in Sources */,
 				317DC8BD2BBEB6EE006AA1A0 /* FMDatabaseAdditions.m in Sources */,
 				314905262BB2ECFC00567802 /* MainPageViewController.swift in Sources */,
 				317DC8C72BBEE743006AA1A0 /* SQLiteClient.swift in Sources */,

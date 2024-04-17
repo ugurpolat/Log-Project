@@ -22,6 +22,7 @@ class MainPageViewController: UIViewController {
         coinTableView.dataSource = self
         
         SQLiteClient().addLog(log_timestamp: "test", log_level: "test", log_moduleName: "test", log_message: "test")
+        SQLiteClient().addLog(log_timestamp: "test-2", log_level: "test-2", log_moduleName: "test-2", log_message: "test-2")
         
         viewModel.coinList.bind { [weak self] value in
             DispatchQueue.main.async {

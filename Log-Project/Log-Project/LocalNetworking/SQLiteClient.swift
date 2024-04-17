@@ -63,4 +63,17 @@ class SQLiteClient {
         
         return list
     }
+    
+    func deleteLog(log_id:Int) {
+        db?.open()
+        
+        do {
+            try db!.executeUpdate("delete from Logs where log_id = ?", values: [log_id])
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        db?.close()
+    }
 }
