@@ -24,18 +24,15 @@ class LogPageViewModel {
     
     func deleteLog(log_id:Int) {
         sqliteClient.deleteLog(log_id: log_id)
-        
     }
     
     func getParticularLog(log_Level: String) {
         self.logList.value = sqliteClient.getParticularLog(log_Level: log_Level )
-        
-        print("---")
-        print(self.logList.value)
-        print("---")
     }
     
-    
+    func filterOldLogs() {
+        self.logList.value = sqliteClient.getLogs().filter{Calendar.current.isDateInToday(Date().setStringDateToDate(date: $0.log_timestamp!))}
+    }
     
     func sqliteCopy() {
         let bundlePath = Bundle.main.path(forResource: "log", ofType: ".sqlite")

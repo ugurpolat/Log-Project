@@ -29,19 +29,19 @@ class LogPageViewController: UIViewController {
                 
             }
         }
-        
-        //getSpesificLog()
-        
     }
     
     func setupPopUpButton() {
         let popUpButtonClosure = { (action: UIAction) in
-            if action.title == "warning" {
-                self.viewModel.getParticularLog(log_Level: LogLevel.warning.rawValue)
+            if action.title != "All" {
+                self.viewModel.getParticularLog(log_Level: action.title)
+            } else {
+                self.viewModel.getLogs()
             }
         }
                 
         popUpLogButton.menu = UIMenu(children: [
+            UIAction(title: "All", handler: popUpButtonClosure),
             UIAction(title: LogLevel.error.rawValue, handler: popUpButtonClosure),
             UIAction(title: LogLevel.warning.rawValue, handler: popUpButtonClosure),
             UIAction(title: LogLevel.info.rawValue, handler: popUpButtonClosure),
@@ -51,19 +51,9 @@ class LogPageViewController: UIViewController {
         popUpLogButton.showsMenuAsPrimaryAction = true
     }
     
-    
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         viewModel.getLogs()
-    }
-    
-    func getSpesificLog(){
-        
-    }
-    
-    @IBAction func filterLogs(_ sender: Any) {
-        viewModel.getParticularLog(log_Level: LogLevel.warning.rawValue)
+        //viewModel.filterOldLogs()
     }
     
 }

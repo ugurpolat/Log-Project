@@ -146,27 +146,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Logs" id="IR5-qG-9Rw">
-                        <rightBarButtonItems>
-                            <barButtonItem title="Filter" id="NGf-V6-JQZ">
-                                <connections>
-                                    <action selector="filterLogs:" destination="p7r-5x-UFy" id="t2n-31-Y56"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem style="plain" id="iZt-5J-y6B">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" id="Fx7-M9-Nie">
-                                    <rect key="frame" x="244" y="5" width="87" height="34.333333333333336"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <menu key="menu" id="qQ6-tp-Olh">
-                                        <children>
-                                            <command title="1" id="w0l-2k-gnh" userLabel="1"/>
-                                            <command title="2" id="lRT-z8-pYT" userLabel="2"/>
-                                        </children>
-                                    </menu>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="tinted" title="Button"/>
-                                </button>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="iZt-5J-y6B">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" id="Fx7-M9-Nie">
+                                <rect key="frame" x="244" y="5" width="87" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <menu key="menu" id="qQ6-tp-Olh">
+                                    <children>
+                                        <command title="1" id="w0l-2k-gnh" userLabel="1"/>
+                                        <command title="2" id="lRT-z8-pYT" userLabel="2"/>
+                                    </children>
+                                </menu>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Button"/>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="logTableView" destination="HIZ-JA-Agi" id="b2h-kn-OJm"/>

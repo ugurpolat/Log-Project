@@ -20,10 +20,11 @@ class MainPageViewController: UIViewController {
         
         coinTableView.delegate = self
         coinTableView.dataSource = self
-        /*
-        SQLiteClient().addLog(log_timestamp: "13 Mart", log_level: LogLevel.warning.rawValue, log_moduleName: "test", log_message: "test")
-        SQLiteClient().addLog(log_timestamp: "14 Mart", log_level: LogLevel.error.rawValue, log_moduleName: "test-2", log_message: "test-2")
-        */
+        
+        
+        // SQLiteClient().addLog(log_timestamp: Date().getDateAndHours(), log_level: LogLevel.warning.rawValue, log_moduleName: "Main Page", log_message: "Test-1")
+        // SQLiteClient().addLog(log_timestamp: "2024-04-16 13:03:08", log_level: LogLevel.error.rawValue, log_moduleName: "Main Page", log_message: "Test-2")
+        
         viewModel.coinList.bind { [weak self] value in
             DispatchQueue.main.async {
                 self?.coinList = value!
@@ -37,6 +38,7 @@ class MainPageViewController: UIViewController {
         viewModel.getCoins()
     }
 
+    
     
     func goCoinDetail(coin: Coin) {
         performSegue(withIdentifier: "toCoinDetail", sender: coin)

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SQLiteClient {
+class SQLiteClient:LogStoring, LogRetrieving, LogDeleting {
     
     let db:FMDatabase?
     
