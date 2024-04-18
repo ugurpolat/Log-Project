@@ -24,9 +24,16 @@ class LogPageViewModel {
     
     func deleteLog(log_id:Int) {
         sqliteClient.deleteLog(log_id: log_id)
-        getLogs()
+        
     }
     
+    func getParticularLog(log_Level: String) {
+        self.logList.value = sqliteClient.getParticularLog(log_Level: log_Level )
+        
+        print("---")
+        print(self.logList.value)
+        print("---")
+    }
     
     
     

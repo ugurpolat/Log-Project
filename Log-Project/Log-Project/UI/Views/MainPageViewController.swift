@@ -20,10 +20,10 @@ class MainPageViewController: UIViewController {
         
         coinTableView.delegate = self
         coinTableView.dataSource = self
-        
-        SQLiteClient().addLog(log_timestamp: "test", log_level: "test", log_moduleName: "test", log_message: "test")
-        SQLiteClient().addLog(log_timestamp: "test-2", log_level: "test-2", log_moduleName: "test-2", log_message: "test-2")
-        
+        /*
+        SQLiteClient().addLog(log_timestamp: "13 Mart", log_level: LogLevel.warning.rawValue, log_moduleName: "test", log_message: "test")
+        SQLiteClient().addLog(log_timestamp: "14 Mart", log_level: LogLevel.error.rawValue, log_moduleName: "test-2", log_message: "test-2")
+        */
         viewModel.coinList.bind { [weak self] value in
             DispatchQueue.main.async {
                 self?.coinList = value!

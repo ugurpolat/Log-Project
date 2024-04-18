@@ -76,4 +76,35 @@ class SQLiteClient {
         
         db?.close()
     }
+    
+    func getParticularLog(log_Level: String) -> [Log] {
+        db?.open()
+        
+        defer {
+            db?.close()
+        }
+        var list = [Log]()
+        
+        do {
+            let result = try db!.executeQuery("SELECT * FROM Logs where log_level = ?", values: [log_Level])
+           
+            while result.next() {
+                
+                let log = Log(log_id: Int(result.string(forColumn: "log_id"))!,
+                              log_timestamp: result.string(forColumn: "log_timestamp")!,
+                              log_level: result.string(forColumn: "log_level")!,
+                              log_moduleName: result.string(forColumn: "log_moduleName")!,
+                              log_message: result.string(forColumn: "log_message")!)
+                print(log)
+                
+                list.append(log)
+                
+            }
+            
+        } catch  {
+            print(error.localizedDescription)
+        }
+        
+        return list
+    }
 }
