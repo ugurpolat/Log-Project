@@ -31,7 +31,7 @@
 		317DC8C42BBEB9B1006AA1A0 /* LogPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317DC8C32BBEB9B1006AA1A0 /* LogPageViewModel.swift */; };
 		317DC8C72BBEE743006AA1A0 /* SQLiteClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317DC8C62BBEE743006AA1A0 /* SQLiteClient.swift */; };
 		31CAB5262BD05CAF00B82081 /* LogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CAB5252BD05CAF00B82081 /* LogCell.swift */; };
-		31D8968D2BD2BE22001136ED /* log-2.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 31D8968C2BD2BE22001136ED /* log-2.sqlite */; };
+		31D8968D2BD2BE22001136ED /* log.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 31D8968C2BD2BE22001136ED /* log.sqlite */; };
 		31FAAD6A2BBC117000878D9D /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FAAD692BBC117000878D9D /* Log.swift */; };
 		31FAAD6C2BBC140900878D9D /* LogLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FAAD6B2BBC140900878D9D /* LogLayer.swift */; };
 		31FAAD6F2BBC414100878D9D /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FAAD6E2BBC414100878D9D /* Logger.swift */; };
@@ -73,7 +73,7 @@
 		317DC8C32BBEB9B1006AA1A0 /* LogPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPageViewModel.swift; sourceTree = "<group>"; };
 		317DC8C62BBEE743006AA1A0 /* SQLiteClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteClient.swift; sourceTree = "<group>"; };
 		31CAB5252BD05CAF00B82081 /* LogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCell.swift; sourceTree = "<group>"; };
-		31D8968C2BD2BE22001136ED /* log-2.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "log-2.sqlite"; sourceTree = "<group>"; };
+		31D8968C2BD2BE22001136ED /* log.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = log.sqlite; sourceTree = "<group>"; };
 		31FAAD692BBC117000878D9D /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		31FAAD6B2BBC140900878D9D /* LogLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogLayer.swift; sourceTree = "<group>"; };
 		31FAAD6E2BBC414100878D9D /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 				317DC8B02BBEB6EE006AA1A0 /* FMResultSet.h */,
 				317DC8B32BBEB6EE006AA1A0 /* FMResultSet.m */,
 				317DC8AE2BBEB6ED006AA1A0 /* Log-Project-Bridging-Header.h */,
-				31D8968C2BD2BE22001136ED /* log-2.sqlite */,
+				31D8968C2BD2BE22001136ED /* log.sqlite */,
 			);
 			path = "Log-Project";
 			sourceTree = "<group>";
@@ -309,7 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3149052E2BB2ECFC00567802 /* LaunchScreen.storyboard in Resources */,
-				31D8968D2BD2BE22001136ED /* log-2.sqlite in Resources */,
+				31D8968D2BD2BE22001136ED /* log.sqlite in Resources */,
 				3149052B2BB2ECFC00567802 /* Assets.xcassets in Resources */,
 				314905292BB2ECFC00567802 /* Main.storyboard in Resources */,
 			);
