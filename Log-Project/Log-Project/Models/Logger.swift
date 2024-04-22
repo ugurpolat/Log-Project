@@ -11,6 +11,8 @@ class Logger: LogLayer {
     
     static let shared = Logger()
     
+    private init() {}
+    
     func logSaveLocal(logFile: Log, completion: ((Bool, Error?) -> Void)?) {
         print("Log Save Local")
     }

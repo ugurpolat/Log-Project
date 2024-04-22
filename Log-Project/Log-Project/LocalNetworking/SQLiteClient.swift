@@ -84,7 +84,7 @@ class SQLiteClient:LogStoring, LogRetrieving, LogDeleting {
             db?.close()
         }
         var list = [Log]()
-        
+        // KONTROLLER YAPILAbilir
         do {
             let result = try db!.executeQuery("SELECT * FROM Logs where log_level = ?", values: [log_Level])
            

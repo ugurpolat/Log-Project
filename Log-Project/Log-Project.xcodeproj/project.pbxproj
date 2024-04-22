@@ -32,11 +32,26 @@
 		317DC8C72BBEE743006AA1A0 /* SQLiteClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317DC8C62BBEE743006AA1A0 /* SQLiteClient.swift */; };
 		31C0BFC62BD5583700826DFD /* log.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 31C0BFC52BD5583700826DFD /* log.sqlite */; };
 		31CAB5262BD05CAF00B82081 /* LogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CAB5252BD05CAF00B82081 /* LogCell.swift */; };
+		31D20FDF2BD68913008C2B15 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D20FDE2BD68913008C2B15 /* SettingsViewController.swift */; };
+		31D20FE22BD6A94B008C2B15 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D20FE12BD6A94B008C2B15 /* ChartViewController.swift */; };
 		31FAAD6A2BBC117000878D9D /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FAAD692BBC117000878D9D /* Log.swift */; };
 		31FAAD6C2BBC140900878D9D /* LogLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FAAD6B2BBC140900878D9D /* LogLayer.swift */; };
 		31FAAD6F2BBC414100878D9D /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FAAD6E2BBC414100878D9D /* Logger.swift */; };
 		31FAAD752BBC50E700878D9D /* APIClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FAAD742BBC50E700878D9D /* APIClientProtocol.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		31D20FE72BD6A9CA008C2B15 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		313B4CB32BB6B0B00011334D /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
@@ -74,6 +89,8 @@
 		317DC8C62BBEE743006AA1A0 /* SQLiteClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteClient.swift; sourceTree = "<group>"; };
 		31C0BFC52BD5583700826DFD /* log.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = log.sqlite; sourceTree = "<group>"; };
 		31CAB5252BD05CAF00B82081 /* LogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCell.swift; sourceTree = "<group>"; };
+		31D20FDE2BD68913008C2B15 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		31D20FE12BD6A94B008C2B15 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		31FAAD692BBC117000878D9D /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		31FAAD6B2BBC140900878D9D /* LogLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogLayer.swift; sourceTree = "<group>"; };
 		31FAAD6E2BBC414100878D9D /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -120,20 +137,11 @@
 				314905212BB2ECFC00567802 /* AppDelegate.swift */,
 				314905232BB2ECFC00567802 /* SceneDelegate.swift */,
 				314905272BB2ECFC00567802 /* Main.storyboard */,
+				31D20FE12BD6A94B008C2B15 /* ChartViewController.swift */,
 				3149052A2BB2ECFC00567802 /* Assets.xcassets */,
 				3149052C2BB2ECFC00567802 /* LaunchScreen.storyboard */,
 				3149052F2BB2ECFC00567802 /* Info.plist */,
-				317DC8B82BBEB6EE006AA1A0 /* FMDatabase.h */,
-				317DC8B12BBEB6EE006AA1A0 /* FMDatabase.m */,
-				317DC8B42BBEB6EE006AA1A0 /* FMDatabaseAdditions.h */,
-				317DC8B62BBEB6EE006AA1A0 /* FMDatabaseAdditions.m */,
-				317DC8B52BBEB6EE006AA1A0 /* FMDatabasePool.h */,
-				317DC8B22BBEB6EE006AA1A0 /* FMDatabasePool.m */,
-				317DC8B92BBEB6EE006AA1A0 /* FMDatabaseQueue.h */,
-				317DC8B72BBEB6EE006AA1A0 /* FMDatabaseQueue.m */,
-				317DC8AF2BBEB6EE006AA1A0 /* FMDB.h */,
-				317DC8B02BBEB6EE006AA1A0 /* FMResultSet.h */,
-				317DC8B32BBEB6EE006AA1A0 /* FMResultSet.m */,
+				31D20FE02BD6A888008C2B15 /* FM */,
 				317DC8AE2BBEB6ED006AA1A0 /* Log-Project-Bridging-Header.h */,
 				31C0BFC52BD5583700826DFD /* log.sqlite */,
 			);
@@ -167,6 +175,7 @@
 				314905252BB2ECFC00567802 /* MainPageViewController.swift */,
 				314905392BB2EDE300567802 /* DetailViewController.swift */,
 				317DC8C12BBEB978006AA1A0 /* LogPageViewController.swift */,
+				31D20FDE2BD68913008C2B15 /* SettingsViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,6 +212,24 @@
 				317DC8C62BBEE743006AA1A0 /* SQLiteClient.swift */,
 			);
 			path = LocalNetworking;
+			sourceTree = "<group>";
+		};
+		31D20FE02BD6A888008C2B15 /* FM */ = {
+			isa = PBXGroup;
+			children = (
+				317DC8B82BBEB6EE006AA1A0 /* FMDatabase.h */,
+				317DC8B12BBEB6EE006AA1A0 /* FMDatabase.m */,
+				317DC8B42BBEB6EE006AA1A0 /* FMDatabaseAdditions.h */,
+				317DC8B62BBEB6EE006AA1A0 /* FMDatabaseAdditions.m */,
+				317DC8B52BBEB6EE006AA1A0 /* FMDatabasePool.h */,
+				317DC8B22BBEB6EE006AA1A0 /* FMDatabasePool.m */,
+				317DC8B92BBEB6EE006AA1A0 /* FMDatabaseQueue.h */,
+				317DC8B72BBEB6EE006AA1A0 /* FMDatabaseQueue.m */,
+				317DC8AF2BBEB6EE006AA1A0 /* FMDB.h */,
+				317DC8B02BBEB6EE006AA1A0 /* FMResultSet.h */,
+				317DC8B32BBEB6EE006AA1A0 /* FMResultSet.m */,
+			);
+			path = FM;
 			sourceTree = "<group>";
 		};
 		31FAAD682BBC115600878D9D /* Helpers */ = {
@@ -259,6 +286,7 @@
 				3149051A2BB2ECFC00567802 /* Sources */,
 				3149051B2BB2ECFC00567802 /* Frameworks */,
 				3149051C2BB2ECFC00567802 /* Resources */,
+				31D20FE72BD6A9CA008C2B15 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -327,6 +355,7 @@
 				314905452BB350C200567802 /* MainPageViewModel.swift in Sources */,
 				3149053E2BB2F04000567802 /* CoinList.swift in Sources */,
 				317DC8BA2BBEB6EE006AA1A0 /* FMDatabase.m in Sources */,
+				31D20FE22BD6A94B008C2B15 /* ChartViewController.swift in Sources */,
 				3156C7AF2BD130A90090A43A /* SQLiteLayers.swift in Sources */,
 				31FAAD6A2BBC117000878D9D /* Log.swift in Sources */,
 				31CAB5262BD05CAF00B82081 /* LogCell.swift in Sources */,
@@ -345,6 +374,7 @@
 				3156C7AD2BD1133F0090A43A /* Date.swift in Sources */,
 				317DC8C42BBEB9B1006AA1A0 /* LogPageViewModel.swift in Sources */,
 				317DC8BB2BBEB6EE006AA1A0 /* FMDatabasePool.m in Sources */,
+				31D20FDF2BD68913008C2B15 /* SettingsViewController.swift in Sources */,
 				31FAAD752BBC50E700878D9D /* APIClientProtocol.swift in Sources */,
 				3149053A2BB2EDE300567802 /* DetailViewController.swift in Sources */,
 			);

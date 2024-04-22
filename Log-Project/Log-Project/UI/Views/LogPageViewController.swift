@@ -8,11 +8,11 @@
 import UIKit
 
 class LogPageViewController: UIViewController {
-
+    
     @IBOutlet weak var logTableView: UITableView!
     var viewModel = LogPageViewModel()
     var logList = [Log]()
-  
+    
     @IBOutlet weak var popUpLogButton: UIButton!
     
     override func viewDidLoad() {
@@ -23,8 +23,15 @@ class LogPageViewController: UIViewController {
         
         viewModel.logList.bind { [weak self] value in
             DispatchQueue.main.async {
-                self?.logList = value!
-                print(self!.logList)
+                
+                //self?.logList = value!
+                // Daha efektif
+                guard let newValue = value else {
+                    print("No logs to update.")
+                    return
+                }
+                
+                self?.logList = newValue
                 self?.logTableView.reloadData()
                 
             }
@@ -39,7 +46,7 @@ class LogPageViewController: UIViewController {
                 self.viewModel.getLogs()
             }
         }
-                
+        
         popUpLogButton.menu = UIMenu(children: [
             UIAction(title: "All", handler: popUpButtonClosure),
             UIAction(title: LogLevel.error.rawValue, handler: popUpButtonClosure),
@@ -52,8 +59,8 @@ class LogPageViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        viewModel.getLogs()
-        //viewModel.filterOldLogs()
+        //viewModel.getLogs()
+        viewModel.filterOldLogs()
     }
     
 }

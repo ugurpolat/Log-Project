@@ -24,6 +24,11 @@ class Coin:Codable {
         
     }
     
+    init(symbol: String,name: String){
+        self.symbol = symbol
+        self.name = name
+    }
+    
     init(id: String,rank: String,symbol: String,name: String,supply:String,maxSupply:String,marketCapUsd:String,volumeUsd24Hr:String,priceUsd: String,changePercent24Hr:String,vwap24Hr:String) {
         
         self.id = id

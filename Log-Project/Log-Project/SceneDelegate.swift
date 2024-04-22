@@ -29,6 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        updateInterfaceStyle()
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
@@ -39,6 +40,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        updateInterfaceStyle()
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
@@ -47,6 +49,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+    func updateInterfaceStyle() {
+        let isDarkModeEnabled = UserDefaults.standard.bool(forKey: "isDarkMode")
+       
+        if #available(iOS 13.0, *) {
+            UIApplication.shared.windows.forEach { window in
+                window.overrideUserInterfaceStyle = isDarkModeEnabled ? .dark : .light
+            }
+        } else {
+            print("iOS version is below 13, no action taken.")
+            }
+        }
 
 }
 

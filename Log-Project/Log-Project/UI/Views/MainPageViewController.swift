@@ -62,21 +62,34 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let coin = coinList[indexPath.row]
+        let viewModel = Coin(symbol:coin.symbol!, name: coin.name!)
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CoinCell") as! CoinCell
+        
+        
+        /*
+         BEST PRACTISE
+         
+         bu tip yerlerde de tek tek cellin propertylerini setlemek yerine cell.configure(with: viewmodel)
+         yapmak her zaman daha iyidir
+         */
+        
+        /*
         cell.labelCoinName.text = coin.name
         cell.labelCoinSymbol.text = coin.symbol
-        cell.coin = coin
-        
+        //cell.coin = coin
+         */
+        cell.configure(with: viewModel)
         
         return cell
     }
     
+    // SORULACAK
+    // manuel olarak deselectRow çağırmak yerine selectionstyle = .none yapabiliniyor tableviewde veya cellde best practice hangisi?
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         goCoinDetail(coin: coinList[indexPath.row])
-        tableView.deselectRow(at: indexPath, animated: true)
-        
+        //tableView.deselectRow(at: indexPath, animated: true)
+        CoinCell.appearance().selectionStyle = .none
     }
     
 }
