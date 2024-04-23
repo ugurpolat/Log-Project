@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31118C542BD7DF0800C481A6 /* SliderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31118C532BD7DF0800C481A6 /* SliderCollectionViewCell.swift */; };
+		31118C562BD8453B00C481A6 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31118C552BD8453B00C481A6 /* PieChartView.swift */; };
 		313B4CB42BB6B0B00011334D /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313B4CB32BB6B0B00011334D /* APIClient.swift */; };
 		314905222BB2ECFC00567802 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314905212BB2ECFC00567802 /* AppDelegate.swift */; };
 		314905242BB2ECFC00567802 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314905232BB2ECFC00567802 /* SceneDelegate.swift */; };
@@ -54,6 +56,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		31118C532BD7DF0800C481A6 /* SliderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderCollectionViewCell.swift; sourceTree = "<group>"; };
+		31118C552BD8453B00C481A6 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		313B4CB32BB6B0B00011334D /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		3149051E2BB2ECFC00567802 /* Log-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Log-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		314905212BB2ECFC00567802 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +112,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31118C522BD7DED300C481A6 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				31118C532BD7DF0800C481A6 /* SliderCollectionViewCell.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
 		314905152BB2ECFC00567802 = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +163,7 @@
 		314905362BB2ED6400567802 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				31118C522BD7DED300C481A6 /* CollectionView */,
 				314905432BB350A400567802 /* ViewModel */,
 				314905402BB2F38F00567802 /* TableView */,
 				314905382BB2ED8C00567802 /* Views */,
@@ -176,6 +189,7 @@
 				314905392BB2EDE300567802 /* DetailViewController.swift */,
 				317DC8C12BBEB978006AA1A0 /* LogPageViewController.swift */,
 				31D20FDE2BD68913008C2B15 /* SettingsViewController.swift */,
+				31118C552BD8453B00C481A6 /* PieChartView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -351,8 +365,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				317DC8C22BBEB978006AA1A0 /* LogPageViewController.swift in Sources */,
+				31118C562BD8453B00C481A6 /* PieChartView.swift in Sources */,
 				31FAAD6C2BBC140900878D9D /* LogLayer.swift in Sources */,
 				314905452BB350C200567802 /* MainPageViewModel.swift in Sources */,
+				31118C542BD7DF0800C481A6 /* SliderCollectionViewCell.swift in Sources */,
 				3149053E2BB2F04000567802 /* CoinList.swift in Sources */,
 				317DC8BA2BBEB6EE006AA1A0 /* FMDatabase.m in Sources */,
 				31D20FE22BD6A94B008C2B15 /* ChartViewController.swift in Sources */,

@@ -19,14 +19,17 @@ class Coin:Codable {
     var priceUsd: String?
     var changePercent24Hr: String?
     var vwap24Hr: String?
+    var isFavorite: Bool?
     
     init(){
         
     }
     
-    init(symbol: String,name: String){
+    init(symbol: String,name: String, isFavorite:Bool,id:String){
         self.symbol = symbol
         self.name = name
+        self.isFavorite = isFavorite
+        self.id = id
     }
     
     init(id: String,rank: String,symbol: String,name: String,supply:String,maxSupply:String,marketCapUsd:String,volumeUsd24Hr:String,priceUsd: String,changePercent24Hr:String,vwap24Hr:String) {
@@ -42,5 +45,6 @@ class Coin:Codable {
         self.priceUsd = priceUsd
         self.changePercent24Hr = changePercent24Hr
         self.vwap24Hr = vwap24Hr
+        
     }
 }
