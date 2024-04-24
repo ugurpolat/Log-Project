@@ -11,15 +11,17 @@ class MainPageViewController: UIViewController {
     
     @IBOutlet weak var coinTableView: UITableView!
     @IBOutlet weak var sliderCollectionView: UICollectionView!
-    
+    var pie_1 = PieChart()
+    var pie_2 = PieChart_2()
     var coinList = [Coin]()
+    var pieCharts = [UIView]()
     var viewModel = MainPageViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("Fav Listesi")
-        print(UserDefaults.standard.array(forKey: "favoriteCoinList")!)
+        setupCollectionView()
+        pieCharts.append(pie_1)
+        pieCharts.append(pie_2)
         
         coinTableView.delegate = self
         coinTableView.dataSource = self
@@ -31,16 +33,25 @@ class MainPageViewController: UIViewController {
             DispatchQueue.main.async {
                 self?.coinList = value!
                 self?.coinTableView.reloadData()
+                self?.sliderCollectionView.reloadData()
                 
             }
         }
+    }
+    private func setupCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: sliderCollectionView.frame.size.width, height: sliderCollectionView.frame.size.height)
+        layout.minimumLineSpacing = 0 // Ensure there's no space between cells if paging is enabled
+        sliderCollectionView.collectionViewLayout = layout
+        sliderCollectionView.isPagingEnabled = true // This ensures that each cell is centered in the view when scrolled
     }
     
     override func viewWillAppear(_ animated: Bool) {
         viewModel.getCoins()
     }
     
-    func goCoinDetail(coin: Coin) {
+    private func goCoinDetail(coin: Coin) {
         performSegue(withIdentifier: "toCoinDetail", sender: coin)
     }
     
@@ -52,8 +63,18 @@ class MainPageViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func getMyAssets(_ sender: UIButton) {
+        let firstIndexPath = IndexPath(item: 0, section: 0)
+        sliderCollectionView.scrollToItem(at: firstIndexPath, at: .centeredHorizontally, animated: true)
+    }
+    
+    @IBAction func getMyTransactions(_ sender: UIButton) {
+        let secondIndexPath = IndexPath(item: 1, section: 0)
+        sliderCollectionView.scrollToItem(at: secondIndexPath, at: .centeredHorizontally, animated: true)
+        
+    }
 }
-
 
 extension MainPageViewController: UITableViewDelegate, UITableViewDataSource,CoinCellProtocol {
     
@@ -67,15 +88,9 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource,Coi
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CoinCell") as! CoinCell
         
-        
-        /*
-         BEST PRACTISE
-         
+        /*BEST PRACTISE
          bu tip yerlerde de tek tek cellin propertylerini setlemek yerine cell.configure(with: viewmodel)
          yapmak her zaman daha iyidir
-         */
-        
-        /*
          cell.labelCoinName.text = coin.name
          cell.labelCoinSymbol.text = coin.symbol
          //cell.coin = coin
@@ -151,15 +166,17 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource,Coi
 }
 
 extension MainPageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2;
+        return pieCharts.count;
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = sliderCollectionView.dequeueReusableCell(withReuseIdentifier: "SliderCell", for: indexPath) as! SliderCollectionViewCell
+        let pieChart = pieCharts[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SliderCell", for: indexPath) as! SliderCollectionViewCell
         
+        cell.pieChart = pieChart
         return cell
     }
-    
     
 }

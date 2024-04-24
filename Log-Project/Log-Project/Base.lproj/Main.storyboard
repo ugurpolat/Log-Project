@@ -19,12 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="W6I-OV-nJ2">
-                                <rect key="frame" x="16" y="203" width="361" height="200"/>
+                                <rect key="frame" x="16" y="151" width="361" height="180"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="361" id="5I7-6Z-fWW"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="180" id="da2-eA-zeT"/>
-                                    <constraint firstAttribute="height" constant="200" id="fH6-MM-frP"/>
+                                    <constraint firstAttribute="height" constant="180" id="fH6-MM-frP"/>
+                                    <constraint firstAttribute="width" constant="361" id="xFV-CH-0er"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="P7V-El-JPU">
                                     <size key="itemSize" width="128" height="128"/>
@@ -34,17 +33,17 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="SliderCell" id="fFL-l9-JbE" customClass="SliderCollectionViewCell" customModule="Log_Project" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="10" width="360" height="180"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="180"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="O03-bu-hNz">
-                                            <rect key="frame" x="0.0" y="0.0" width="360" height="180"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="361" height="180"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oW2-gJ-luf">
-                                                    <rect key="frame" x="0.0" y="0.0" width="360" height="180"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="361" height="180"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="180" id="5ax-wC-EaR"/>
-                                                        <constraint firstAttribute="width" constant="360" id="rwz-5g-2JI"/>
+                                                        <constraint firstAttribute="width" constant="361" id="rwz-5g-2JI"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -62,7 +61,7 @@
                                 </cells>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MjI-lP-h7g">
-                                <rect key="frame" x="0.0" y="435" width="393" height="383"/>
+                                <rect key="frame" x="0.0" y="363" width="393" height="455"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CoinCell" id="snE-Og-7vf" customClass="CoinCell" customModule="Log_Project" customModuleProvider="target">
@@ -119,18 +118,24 @@
                                 </prototypes>
                             </tableView>
                             <stackView opaque="NO" contentMode="left" translatesAutoresizingMaskIntoConstraints="NO" id="vyM-oo-KhJ">
-                                <rect key="frame" x="8" y="171" width="308" height="30"/>
+                                <rect key="frame" x="8" y="119" width="308" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efp-Lp-8T5">
                                         <rect key="frame" x="0.0" y="0.0" width="154" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Varliklarim"/>
+                                        <connections>
+                                            <action selector="getMyAssets:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mn9-gV-kbY"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="m3g-ef-lTn">
                                         <rect key="frame" x="154" y="0.0" width="154" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Islemlerim"/>
+                                        <connections>
+                                            <action selector="getMyTransactions:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bhv-P0-Im5"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
