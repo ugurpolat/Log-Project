@@ -51,11 +51,11 @@ class MainPageViewController: UIViewController {
         viewModel.getCoins()
     }
     
-    private func goCoinDetail(coin: Coin) {
+    func goCoinDetail(coin: Coin) {
         performSegue(withIdentifier: "toCoinDetail", sender: coin)
     }
-    private func goMyTransactions(){
-        performSegue(withIdentifier: "toMyTransactions", sender: nil)
+    func goMyTransactions(transactions: [Transaction]){
+        performSegue(withIdentifier: "toMyTransactions", sender: transactions)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -65,7 +65,12 @@ class MainPageViewController: UIViewController {
                 targetVC.coinDetail = coin
             }
         }else if segue.identifier == "toMyTransactions" {
-            
+            if let transactions = sender as? [Transaction] {
+                let targetVC = segue.destination as! TransactionViewController
+                print("Gonderilen Data")
+                print(transactions)
+                targetVC.transactionData = transactions
+            }
         }
     }
     
@@ -154,7 +159,7 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource,Coi
                 if let inputText = alert.textFields?.first?.text {
                     print("User entered: \(inputText)")
                     self.present(confirmAlert,animated: true)
-                    let newTransaction = Transaction(id: coin.id!, name: coin.name!, price: Double(coin.priceUsd!)! * Double(inputText)!, time: Date().getDateAndHours())
+                    let newTransaction = Transaction(id: coin.id!,amount: Int(inputText)!,name: coin.name!, price: Double(coin.priceUsd!)! * Double(inputText)!, time: Date().getDateAndHours(),type: "Alis")
                     do {
                         let encoder = JSONEncoder()
                         let data = try encoder.encode(newTransaction)
@@ -212,11 +217,15 @@ extension MainPageViewController: UICollectionViewDelegate, UICollectionViewData
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let pieChart = pieCharts[indexPath.row]
-        goMyTransactions()
+        //let pieChart = pieCharts[indexPath.row]
+        
         //print(UserDefaults.standard.object(forKey: "transactionList")!)
-        var test = loadTransactions()
-        print(test)
+        if indexPath.row == 1 {
+            let test = loadTransactions()
+            goMyTransactions(transactions: test!)
+            print(test!)
+        }
+
     }
     
 }
@@ -224,8 +233,10 @@ extension MainPageViewController: UICollectionViewDelegate, UICollectionViewData
 struct Transaction:Codable {
     
     let id: String
+    let amount:Int
     let name: String
     let price: Double
     let time: String
+    let type: String
 
 }

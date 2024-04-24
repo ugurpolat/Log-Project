@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		31118C542BD7DF0800C481A6 /* SliderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31118C532BD7DF0800C481A6 /* SliderCollectionViewCell.swift */; };
 		31118C562BD8453B00C481A6 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31118C552BD8453B00C481A6 /* PieChartView.swift */; };
+		312BF1C92BD9A17E0072EDDB /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312BF1C82BD9A17E0072EDDB /* TransactionViewController.swift */; };
 		313B4CB42BB6B0B00011334D /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313B4CB32BB6B0B00011334D /* APIClient.swift */; };
+		3142C4B92BD9A9AA00DB5C44 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3142C4B82BD9A9AA00DB5C44 /* TransactionCell.swift */; };
 		314905222BB2ECFC00567802 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314905212BB2ECFC00567802 /* AppDelegate.swift */; };
 		314905242BB2ECFC00567802 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314905232BB2ECFC00567802 /* SceneDelegate.swift */; };
 		314905262BB2ECFC00567802 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314905252BB2ECFC00567802 /* MainPageViewController.swift */; };
@@ -58,7 +60,9 @@
 /* Begin PBXFileReference section */
 		31118C532BD7DF0800C481A6 /* SliderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderCollectionViewCell.swift; sourceTree = "<group>"; };
 		31118C552BD8453B00C481A6 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		312BF1C82BD9A17E0072EDDB /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
 		313B4CB32BB6B0B00011334D /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		3142C4B82BD9A9AA00DB5C44 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		3149051E2BB2ECFC00567802 /* Log-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Log-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		314905212BB2ECFC00567802 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		314905232BB2ECFC00567802 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -190,6 +194,7 @@
 				317DC8C12BBEB978006AA1A0 /* LogPageViewController.swift */,
 				31D20FDE2BD68913008C2B15 /* SettingsViewController.swift */,
 				31118C552BD8453B00C481A6 /* PieChartView.swift */,
+				312BF1C82BD9A17E0072EDDB /* TransactionViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 			children = (
 				314905412BB2F3D600567802 /* CoinCell.swift */,
 				31CAB5252BD05CAF00B82081 /* LogCell.swift */,
+				3142C4B82BD9A9AA00DB5C44 /* TransactionCell.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -388,7 +394,9 @@
 				313B4CB42BB6B0B00011334D /* APIClient.swift in Sources */,
 				317DC8BC2BBEB6EE006AA1A0 /* FMResultSet.m in Sources */,
 				3156C7AD2BD1133F0090A43A /* Date.swift in Sources */,
+				3142C4B92BD9A9AA00DB5C44 /* TransactionCell.swift in Sources */,
 				317DC8C42BBEB9B1006AA1A0 /* LogPageViewModel.swift in Sources */,
+				312BF1C92BD9A17E0072EDDB /* TransactionViewController.swift in Sources */,
 				317DC8BB2BBEB6EE006AA1A0 /* FMDatabasePool.m in Sources */,
 				31D20FDF2BD68913008C2B15 /* SettingsViewController.swift in Sources */,
 				31FAAD752BBC50E700878D9D /* APIClientProtocol.swift in Sources */,
