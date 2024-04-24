@@ -19,7 +19,7 @@ class ChartViewController: UIViewController {
         pieChartView.frame = CGRect(x: (view.frame.size.width - 200) / 2,
                                     y: (view.frame.size.height - 200) / 2, width: 200,
                                         height: 200)
-               pieChartView.backgroundColor = .white
+               pieChartView.backgroundColor = .blue
                view.addSubview(pieChartView)
     }
 }

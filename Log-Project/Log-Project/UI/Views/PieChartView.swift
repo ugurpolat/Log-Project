@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class PieChartView: UIView {
+class PieChartViev: UIView {
     
     struct Segment {
         var color: UIColor

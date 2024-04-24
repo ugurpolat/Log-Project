@@ -19,9 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="W6I-OV-nJ2">
-                                <rect key="frame" x="16" y="103" width="361" height="200"/>
+                                <rect key="frame" x="16" y="203" width="361" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="361" id="5I7-6Z-fWW"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="180" id="da2-eA-zeT"/>
                                     <constraint firstAttribute="height" constant="200" id="fH6-MM-frP"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="P7V-El-JPU">
@@ -32,17 +34,16 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="SliderCell" id="fFL-l9-JbE" customClass="SliderCollectionViewCell" customModule="Log_Project" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-10" width="360" height="220"/>
+                                        <rect key="frame" x="0.0" y="10" width="360" height="180"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="O03-bu-hNz">
-                                            <rect key="frame" x="0.0" y="0.0" width="360" height="220"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="360" height="180"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oW2-gJ-luf">
-                                                    <rect key="frame" x="0.0" y="0.0" width="360" height="220"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="360" height="180"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="220" id="5ax-wC-EaR"/>
+                                                        <constraint firstAttribute="height" constant="180" id="5ax-wC-EaR"/>
                                                         <constraint firstAttribute="width" constant="360" id="rwz-5g-2JI"/>
                                                     </constraints>
                                                 </view>
@@ -61,7 +62,7 @@
                                 </cells>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MjI-lP-h7g">
-                                <rect key="frame" x="0.0" y="303" width="393" height="515"/>
+                                <rect key="frame" x="0.0" y="435" width="393" height="383"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CoinCell" id="snE-Og-7vf" customClass="CoinCell" customModule="Log_Project" customModuleProvider="target">
@@ -88,9 +89,8 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Sl-uB-5Wp">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Sl-uB-5Wp">
                                                     <rect key="frame" x="158" y="11" width="77" height="67"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="tintColor" systemColor="systemGrayColor"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="star" catalog="system">
@@ -103,7 +103,11 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="hIn-bh-SHy" firstAttribute="centerY" secondItem="gKE-ew-ByX" secondAttribute="centerY" id="398-SJ-z4G"/>
+                                                <constraint firstItem="6Sl-uB-5Wp" firstAttribute="centerX" secondItem="gKE-ew-ByX" secondAttribute="centerX" id="6iH-g2-kP2"/>
                                                 <constraint firstItem="hIn-bh-SHy" firstAttribute="leading" secondItem="gKE-ew-ByX" secondAttribute="leadingMargin" id="POD-hB-F3n"/>
+                                                <constraint firstItem="6Sl-uB-5Wp" firstAttribute="top" secondItem="gKE-ew-ByX" secondAttribute="topMargin" id="eRc-XN-jL4"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="6Sl-uB-5Wp" secondAttribute="bottom" constant="11" id="kno-hJ-tf9"/>
+                                                <constraint firstItem="6Sl-uB-5Wp" firstAttribute="leading" secondItem="hIn-bh-SHy" secondAttribute="trailing" constant="46.333333333333314" id="sXQ-nt-J84"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -114,18 +118,41 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <stackView opaque="NO" contentMode="left" translatesAutoresizingMaskIntoConstraints="NO" id="vyM-oo-KhJ">
+                                <rect key="frame" x="8" y="171" width="308" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efp-Lp-8T5">
+                                        <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Varliklarim"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="m3g-ef-lTn">
+                                        <rect key="frame" x="102.66666666666666" y="0.0" width="102.66666666666666" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Islemlerim"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Ftw-Ph-1ei">
+                                        <rect key="frame" x="205.33333333333334" y="0.0" width="102.66666666666666" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Borclar"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MjI-lP-h7g" secondAttribute="bottom" id="4cW-qk-7fX"/>
                             <constraint firstItem="MjI-lP-h7g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Aux-0o-1Bb"/>
-                            <constraint firstItem="MjI-lP-h7g" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="BOJ-Wk-dO3"/>
-                            <constraint firstItem="W6I-OV-nJ2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VqN-cj-paJ"/>
+                            <constraint firstItem="MjI-lP-h7g" firstAttribute="top" secondItem="W6I-OV-nJ2" secondAttribute="bottom" constant="32" id="BOJ-Wk-dO3"/>
+                            <constraint firstItem="vyM-oo-KhJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="QTP-qQ-9Ym"/>
+                            <constraint firstItem="vyM-oo-KhJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="fXs-cj-ErX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="W6I-OV-nJ2" secondAttribute="trailing" constant="16" id="fhw-ZA-sWD"/>
                             <constraint firstItem="W6I-OV-nJ2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="gbM-b3-Kgd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MjI-lP-h7g" secondAttribute="trailing" id="vEZ-jF-BYm"/>
-                            <constraint firstItem="W6I-OV-nJ2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="yYH-Kp-MRw"/>
+                            <constraint firstItem="W6I-OV-nJ2" firstAttribute="top" secondItem="vyM-oo-KhJ" secondAttribute="top" constant="32" id="yYH-Kp-MRw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Coins" id="mY2-iE-8vA">
