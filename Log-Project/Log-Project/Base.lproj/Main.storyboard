@@ -122,21 +122,15 @@
                                 <rect key="frame" x="8" y="171" width="308" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efp-Lp-8T5">
-                                        <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="154" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Varliklarim"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="m3g-ef-lTn">
-                                        <rect key="frame" x="102.66666666666666" y="0.0" width="102.66666666666666" height="30"/>
+                                        <rect key="frame" x="154" y="0.0" width="154" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Islemlerim"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Ftw-Ph-1ei">
-                                        <rect key="frame" x="205.33333333333334" y="0.0" width="102.66666666666666" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Borclar"/>
                                     </button>
                                 </subviews>
                             </stackView>

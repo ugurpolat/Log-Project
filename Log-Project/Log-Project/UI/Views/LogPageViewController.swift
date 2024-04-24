@@ -59,8 +59,8 @@ class LogPageViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //viewModel.getLogs()
-        viewModel.filterOldLogs()
+        viewModel.getLogs()
+        //viewModel.filterOldLogs()
     }
     
 }

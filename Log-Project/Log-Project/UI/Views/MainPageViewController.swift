@@ -8,13 +8,13 @@
 import UIKit
 
 class MainPageViewController: UIViewController {
-
+    
     @IBOutlet weak var coinTableView: UITableView!
     @IBOutlet weak var sliderCollectionView: UICollectionView!
     
     var coinList = [Coin]()
     var viewModel = MainPageViewModel()
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,7 +31,7 @@ class MainPageViewController: UIViewController {
             DispatchQueue.main.async {
                 self?.coinList = value!
                 self?.coinTableView.reloadData()
-
+                
             }
         }
     }
@@ -76,9 +76,9 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource,Coi
          */
         
         /*
-        cell.labelCoinName.text = coin.name
-        cell.labelCoinSymbol.text = coin.symbol
-        //cell.coin = coin
+         cell.labelCoinName.text = coin.name
+         cell.labelCoinSymbol.text = coin.symbol
+         //cell.coin = coin
          */
         cell.configure(with: viewModel)
         cell.cellProtocol = self
@@ -98,11 +98,42 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource,Coi
         //CoinCell.appearance().selectionStyle = .none
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let alertAction = UIContextualAction(style: .normal, title: "Al") { contextualAction, view, bool in
+            
+            let coin = self.coinList[indexPath.row]
+            
+            let alert = UIAlertController(title: "Alim Islemi", message: "\(coin.name!): \(String(format: "%.2f", Double(coin.priceUsd!)!))", preferredStyle: .alert)
+            let confirmAlert = UIAlertController(title: "", message: "Alim emriniz isleme alinmistir.", preferredStyle: .alert)
+            
+            alert.addTextField { textField in
+                textField.keyboardType = .numberPad
+            }
+            
+            let cancelAction = UIAlertAction(title: "Iptal", style: .destructive)
+            let confirmAction = UIAlertAction(title: "Kapat", style: .destructive)
+            let evetAction = UIAlertAction(title: "Islem Gir", style: .default) { action in
+                if let inputText = alert.textFields?.first?.text {
+                    print("User entered: \(inputText)")
+                    self.present(confirmAlert,animated: true)
+                }
+            }
+            
+            alert.addAction(cancelAction)
+            alert.addAction(evetAction)
+            confirmAlert.addAction(confirmAction)
+            
+            self.present(alert, animated: true)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [alertAction])
+    }
+    
     func clickedfavorite(indexPath: IndexPath) {
         guard indexPath.row < coinList.count, let coinId = coinList[indexPath.row].id else { return }
         
         var favoriteCoinList = UserDefaults.standard.array(forKey: "favoriteCoinList") as? [String] ?? [String]()
-   
+        
         let isFavorite = favoriteCoinList.contains(coinId)
         
         if isFavorite {
@@ -114,7 +145,7 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource,Coi
         
         coinList[indexPath.row].isFavorite = !isFavorite
         coinTableView.reloadRows(at: [indexPath], with: .none)
-       
+        
     }
     
 }

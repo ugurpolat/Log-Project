@@ -58,7 +58,7 @@ class PieChart: UIView {
     let segments: [Segment] = [
         Segment(color: .red, value: 1, name: "BTC"),
         Segment(color: .blue, value: 1, name: "ETH"),
-        Segment(color: .black, value: 9, name: "TKC")
+        Segment(color: .green, value: 9, name: "TKC")
     ]
     
     private var tooltip: UILabel?  // Tooltip label
