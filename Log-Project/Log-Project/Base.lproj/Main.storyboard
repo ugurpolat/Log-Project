@@ -172,6 +172,7 @@
                         <outlet property="coinTableView" destination="MjI-lP-h7g" id="kUH-4w-cfp"/>
                         <outlet property="sliderCollectionView" destination="W6I-OV-nJ2" id="KBa-AU-nDR"/>
                         <segue destination="Qug-aF-kqa" kind="show" identifier="toCoinDetail" id="rIm-BH-Tui"/>
+                        <segue destination="yOT-jn-AvF" kind="show" identifier="toMyTransactions" id="pH1-AR-hxb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -226,7 +227,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hT5-Mz-FQT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1054" y="764"/>
+            <point key="canvasLocation" x="178" y="853"/>
+        </scene>
+        <!--İşlemlerim-->
+        <scene sceneID="Yci-YX-0YO">
+            <objects>
+                <viewController id="yOT-jn-AvF" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="da4-Ex-22o">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="jJe-Hj-YOV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="İşlemlerim" id="kye-5c-hbw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TyH-te-cad" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1911" y="878"/>
         </scene>
         <!--Logs-->
         <scene sceneID="mZu-0I-JUO">
@@ -338,7 +355,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="HNv-OQ-I6S">
-                                <rect key="frame" x="20" y="171" width="353" height="374"/>
+                                <rect key="frame" x="20" y="179.33333333333337" width="353" height="374"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0F5-0a-wjQ">
                                         <rect key="frame" x="0.0" y="0.0" width="53" height="24"/>
@@ -359,25 +376,25 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgn-Ko-YPV">
-                                        <rect key="frame" x="0.0" y="105" width="53" height="24"/>
+                                        <rect key="frame" x="0.0" y="104.99999999999997" width="53" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BsB-gE-aBK">
-                                        <rect key="frame" x="0.0" y="140" width="53" height="24"/>
+                                        <rect key="frame" x="0.0" y="139.99999999999997" width="53" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n4a-ha-e3L">
-                                        <rect key="frame" x="0.0" y="175" width="53" height="24"/>
+                                        <rect key="frame" x="0.0" y="174.99999999999997" width="53" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9GR-hE-Rtc">
-                                        <rect key="frame" x="0.0" y="210" width="53" height="24"/>
+                                        <rect key="frame" x="0.0" y="209.99999999999997" width="53" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -442,7 +459,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gZ8-Jf-Gzc" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Tp8-KL-1FW">
-                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -467,7 +484,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IeR-vg-Q6A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="556" y="-767"/>
+            <point key="canvasLocation" x="-727" y="-692"/>
         </scene>
     </scenes>
     <resources>
@@ -477,7 +494,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGrayColor">
-            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

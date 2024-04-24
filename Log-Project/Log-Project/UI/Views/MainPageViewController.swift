@@ -54,6 +54,9 @@ class MainPageViewController: UIViewController {
     private func goCoinDetail(coin: Coin) {
         performSegue(withIdentifier: "toCoinDetail", sender: coin)
     }
+    private func goMyTransactions(){
+        performSegue(withIdentifier: "toMyTransactions", sender: nil)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toCoinDetail" {
@@ -61,6 +64,8 @@ class MainPageViewController: UIViewController {
                 let targetVC = segue.destination as! DetailViewController
                 targetVC.coinDetail = coin
             }
+        }else if segue.identifier == "toMyTransactions" {
+            
         }
     }
     
@@ -74,7 +79,25 @@ class MainPageViewController: UIViewController {
         sliderCollectionView.scrollToItem(at: secondIndexPath, at: .centeredHorizontally, animated: true)
         
     }
+    func saveTransaction(_ transactionData: Data) {
+        let defaults = UserDefaults.standard
+        var transactions = defaults.object(forKey: "transactionList") as? [Data] ?? [Data]()
+        transactions.append(transactionData)
+        defaults.set(transactions, forKey: "transactionList")
+        
+    }
+    func loadTransactions() -> [Transaction]? {
+        let defaults = UserDefaults.standard
+        guard let encodedData = defaults.object(forKey: "transactionList") as? [Data] else {
+            return nil
+        }
+        
+        let decoder = JSONDecoder()
+        return encodedData.compactMap { try? decoder.decode(Transaction.self, from: $0) }
+    }
 }
+
+
 
 extension MainPageViewController: UITableViewDelegate, UITableViewDataSource,CoinCellProtocol {
     
@@ -131,6 +154,16 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource,Coi
                 if let inputText = alert.textFields?.first?.text {
                     print("User entered: \(inputText)")
                     self.present(confirmAlert,animated: true)
+                    let newTransaction = Transaction(id: coin.id!, name: coin.name!, price: Double(coin.priceUsd!)! * Double(inputText)!, time: Date().getDateAndHours())
+                    do {
+                        let encoder = JSONEncoder()
+                        let data = try encoder.encode(newTransaction)
+                        //var transactionList = UserDefaults.standard.array(forKey: "transactionList") as? [data:] ?? [String:Any]()
+                        self.saveTransaction(data)
+                    } catch {
+                        print("Unable to Encode Note (\(error))")
+                    }
+                    
                 }
             }
             
@@ -178,5 +211,21 @@ extension MainPageViewController: UICollectionViewDelegate, UICollectionViewData
         cell.pieChart = pieChart
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let pieChart = pieCharts[indexPath.row]
+        goMyTransactions()
+        //print(UserDefaults.standard.object(forKey: "transactionList")!)
+        var test = loadTransactions()
+        print(test)
+    }
     
+}
+
+struct Transaction:Codable {
+    
+    let id: String
+    let name: String
+    let price: Double
+    let time: String
+
 }

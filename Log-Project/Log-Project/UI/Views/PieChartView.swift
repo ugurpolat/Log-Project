@@ -125,7 +125,7 @@ class PieChart_2: UIView {
             startAngle = endAngle
         }
     }
-    
+    /*
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first, let touchPoint = touches.first?.location(in: self) else { return }
         let center = CGPoint(x: bounds.midX, y: bounds.midY)
@@ -142,7 +142,7 @@ class PieChart_2: UIView {
             startAngle = endAngle
         }
     }
-    
+    */
     private func showTooltip(for segment: Segment, at point: CGPoint,startAngle: CGFloat, endAngle: CGFloat) {
         
         tooltip?.removeFromSuperview()
