@@ -9,6 +9,8 @@ import UIKit
 
 class MainPageViewController: UIViewController {
     
+    @IBOutlet weak var pieChartHeight: NSLayoutConstraint!
+    @IBOutlet weak var coinSegment: UISegmentedControl!
     @IBOutlet weak var coinTableView: UITableView!
     @IBOutlet weak var sliderCollectionView: UICollectionView!
     var pie_1 = PieChart()
@@ -21,7 +23,7 @@ class MainPageViewController: UIViewController {
         super.viewDidLoad()
         setupCollectionView()
         pieCharts.append(pie_1)
-        pieCharts.append(pie_2)
+        //pieCharts.append(pie_2)
         
         coinTableView.delegate = self
         coinTableView.dataSource = self
@@ -37,6 +39,28 @@ class MainPageViewController: UIViewController {
                 
             }
         }
+    }
+    
+    @IBAction func changeSegment(_ sender: UISegmentedControl) {
+        let index = sender.selectedSegmentIndex
+        //sliderCollectionView.isHidden = index != 0
+       
+        if index == 0  {
+            pieChartHeight.constant = 180
+            //pieCharts[0].isHidden = false
+            //sliderCollectionView.heightAnchor.constraint(equalToConstant: 180).isActive = true
+            //coinTableView.topAnchor.constraint(equalTo: sliderCollectionView.bottomAnchor, constant: 16).isActive = true
+            getMyAssets()
+            
+        } else {
+            pieChartHeight.constant = 0
+            //pieCharts[0].isHidden = true
+            //sliderCollectionView.heightAnchor.constraint(equalToConstant: 0).isActive = true
+            
+            //coinTableView.topAnchor.constraint(equalTo: coinSegment.bottomAnchor, constant: 16).isActive = true
+            getMyTransactions()
+        }
+        
     }
     private func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
@@ -74,14 +98,14 @@ class MainPageViewController: UIViewController {
         }
     }
     
-    @IBAction func getMyAssets(_ sender: UIButton) {
+    func getMyAssets() {
         let firstIndexPath = IndexPath(item: 0, section: 0)
         sliderCollectionView.scrollToItem(at: firstIndexPath, at: .centeredHorizontally, animated: true)
     }
     
-    @IBAction func getMyTransactions(_ sender: UIButton) {
-        let secondIndexPath = IndexPath(item: 1, section: 0)
-        sliderCollectionView.scrollToItem(at: secondIndexPath, at: .centeredHorizontally, animated: true)
+    func getMyTransactions() {
+        //let secondIndexPath = IndexPath(item: 1, section: 0)
+        //sliderCollectionView.scrollToItem(at: secondIndexPath, at: .centeredHorizontally, animated: true)
         
     }
     func saveTransaction(_ transactionData: Data) {
@@ -225,7 +249,7 @@ extension MainPageViewController: UICollectionViewDelegate, UICollectionViewData
             goMyTransactions(transactions: test!)
             print(test!)
         }
-
+        
     }
     
 }
@@ -238,5 +262,5 @@ struct Transaction:Codable {
     let price: Double
     let time: String
     let type: String
-
+    
 }
