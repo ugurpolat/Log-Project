@@ -19,17 +19,21 @@ class MainPageViewController: UIViewController {
     var pieCharts = [UIView]()
     var viewModel = MainPageViewModel()
     
+    var transactionSection = ["Alis","Satis"]
+    var transactionData:[Transaction]?
+    var alisTransactions: [Transaction] = []
+    var satisTransactions: [Transaction] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fetchTransactionFilter()
+        
+        
         setupCollectionView()
         pieCharts.append(pie_1)
-        //pieCharts.append(pie_2)
         
-        coinTableView.delegate = self
-        coinTableView.dataSource = self
-        
-        sliderCollectionView.delegate = self
-        sliderCollectionView.dataSource = self
+        setView()
         
         viewModel.coinList.bind { [weak self] value in
             DispatchQueue.main.async {
@@ -43,32 +47,39 @@ class MainPageViewController: UIViewController {
     
     @IBAction func changeSegment(_ sender: UISegmentedControl) {
         let index = sender.selectedSegmentIndex
-        //sliderCollectionView.isHidden = index != 0
-       
+        DispatchQueue.main.async {
+            self.coinTableView.reloadData()
+        }
         if index == 0  {
             pieChartHeight.constant = 180
-            //pieCharts[0].isHidden = false
-            //sliderCollectionView.heightAnchor.constraint(equalToConstant: 180).isActive = true
-            //coinTableView.topAnchor.constraint(equalTo: sliderCollectionView.bottomAnchor, constant: 16).isActive = true
             getMyAssets()
-            
         } else {
             pieChartHeight.constant = 0
-            //pieCharts[0].isHidden = true
-            //sliderCollectionView.heightAnchor.constraint(equalToConstant: 0).isActive = true
-            
-            //coinTableView.topAnchor.constraint(equalTo: coinSegment.bottomAnchor, constant: 16).isActive = true
             getMyTransactions()
         }
         
     }
+    
+    func setView() {
+        coinTableView.delegate = self
+        coinTableView.dataSource = self
+        
+        sliderCollectionView.delegate = self
+        sliderCollectionView.dataSource = self
+    }
+    
+    private func fetchTransactionFilter () {
+        alisTransactions = transactionData?.filter { $0.type == "Alis" } ?? []
+        satisTransactions = transactionData?.filter { $0.type == "Satis" } ?? []
+    }
+    
     private func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: sliderCollectionView.frame.size.width, height: sliderCollectionView.frame.size.height)
-        layout.minimumLineSpacing = 0 // Ensure there's no space between cells if paging is enabled
+        layout.minimumLineSpacing = 0
         sliderCollectionView.collectionViewLayout = layout
-        sliderCollectionView.isPagingEnabled = true // This ensures that each cell is centered in the view when scrolled
+        sliderCollectionView.isPagingEnabled = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,12 +112,13 @@ class MainPageViewController: UIViewController {
     func getMyAssets() {
         let firstIndexPath = IndexPath(item: 0, section: 0)
         sliderCollectionView.scrollToItem(at: firstIndexPath, at: .centeredHorizontally, animated: true)
+        
     }
     
     func getMyTransactions() {
-        //let secondIndexPath = IndexPath(item: 1, section: 0)
-        //sliderCollectionView.scrollToItem(at: secondIndexPath, at: .centeredHorizontally, animated: true)
-        
+        let test = loadTransactions()
+        transactionData = test
+        fetchTransactionFilter()
     }
     func saveTransaction(_ transactionData: Data) {
         let defaults = UserDefaults.standard
@@ -130,39 +142,78 @@ class MainPageViewController: UIViewController {
 
 extension MainPageViewController: UITableViewDelegate, UITableViewDataSource,CoinCellProtocol {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return coinSegment.selectedSegmentIndex == 0 ? 1 : 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        let index = coinSegment.selectedSegmentIndex
+        
+        if index != 0  {
+            if section == 0{
+                return alisTransactions.count
+            } else if section == 1 {
+                return satisTransactions.count
+            }
+        }
+        
         return coinList.count
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if coinSegment.selectedSegmentIndex == 0 {
+            
+            return nil
+        } else {
+            
+            return transactionSection[section]
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let coin = coinList[indexPath.row]
-        let viewModel = Coin(symbol:coin.symbol!, name: coin.name!, isFavorite: coin.isFavorite!, id: coin.id!)
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CoinCell") as! CoinCell
+        let index = coinSegment.selectedSegmentIndex
         
-        /*BEST PRACTISE
-         bu tip yerlerde de tek tek cellin propertylerini setlemek yerine cell.configure(with: viewmodel)
-         yapmak her zaman daha iyidir
-         cell.labelCoinName.text = coin.name
-         cell.labelCoinSymbol.text = coin.symbol
-         //cell.coin = coin
-         */
-        cell.configure(with: viewModel)
-        cell.cellProtocol = self
-        cell.indexPath = indexPath
-        
-        cell.selectionStyle = .none
-        return cell
+        if index == 0  {
+            let coin = coinList[indexPath.row]
+            let viewModel = Coin(symbol:coin.symbol!, name: coin.name!, isFavorite: coin.isFavorite!, id: coin.id!)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CoinCell") as! CoinCell
+            
+            cell.configure(with: viewModel)
+            cell.cellProtocol = self
+            cell.indexPath = indexPath
+            cell.selectionStyle = .none
+            
+            return cell
+            
+        } else {
+            
+            let transaction = (indexPath.section == 0 ? alisTransactions : satisTransactions)[indexPath.row]
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as? TransactionCell {
+                
+                cell.configure(with: transaction)
+                return cell // Return a default cell if casting fails
+            } else {
+                
+                return UITableViewCell()
+            }
+            
+        }
+        return UITableViewCell()
     }
     
     // SORULACAK
     // manuel olarak deselectRow çağırmak yerine selectionstyle = .none yapabiliniyor tableviewde veya cellde best practice hangisi?
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        goCoinDetail(coin: coinList[indexPath.row])
-        let coin = coinList[indexPath.row]
-        print(coin.isFavorite!)
-        //tableView.deselectRow(at: indexPath, animated: true)
-        //CoinCell.appearance().selectionStyle = .none
+        
+        let index = coinSegment.selectedSegmentIndex
+        
+        if index == 0  {
+            goCoinDetail(coin: coinList[indexPath.row])
+            let coin = coinList[indexPath.row]
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -242,7 +293,6 @@ extension MainPageViewController: UICollectionViewDelegate, UICollectionViewData
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //let pieChart = pieCharts[indexPath.row]
-        
         //print(UserDefaults.standard.object(forKey: "transactionList")!)
         if indexPath.row == 1 {
             let test = loadTransactions()

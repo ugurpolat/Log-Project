@@ -11,6 +11,10 @@
 		31118C562BD8453B00C481A6 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31118C552BD8453B00C481A6 /* PieChartView.swift */; };
 		312BF1C92BD9A17E0072EDDB /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312BF1C82BD9A17E0072EDDB /* TransactionViewController.swift */; };
 		313B4CB42BB6B0B00011334D /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313B4CB32BB6B0B00011334D /* APIClient.swift */; };
+		313C639B2BDD129700FB5B2A /* WorkSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 313C63972BDD129700FB5B2A /* WorkSans-Bold.ttf */; };
+		313C639C2BDD129700FB5B2A /* WorkSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 313C63982BDD129700FB5B2A /* WorkSans-Medium.ttf */; };
+		313C639D2BDD129700FB5B2A /* WorkSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 313C63992BDD129700FB5B2A /* WorkSans-SemiBold.ttf */; };
+		313C639E2BDD129700FB5B2A /* WorkSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 313C639A2BDD129700FB5B2A /* WorkSans-Regular.ttf */; };
 		3142C4B92BD9A9AA00DB5C44 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3142C4B82BD9A9AA00DB5C44 /* TransactionCell.swift */; };
 		314905222BB2ECFC00567802 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314905212BB2ECFC00567802 /* AppDelegate.swift */; };
 		314905242BB2ECFC00567802 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314905232BB2ECFC00567802 /* SceneDelegate.swift */; };
@@ -62,6 +66,10 @@
 		31118C552BD8453B00C481A6 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		312BF1C82BD9A17E0072EDDB /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
 		313B4CB32BB6B0B00011334D /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		313C63972BDD129700FB5B2A /* WorkSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "WorkSans-Bold.ttf"; path = "../../../../../../../Downloads/Work_Sans/static/WorkSans-Bold.ttf"; sourceTree = "<group>"; };
+		313C63982BDD129700FB5B2A /* WorkSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "WorkSans-Medium.ttf"; path = "../../../../../../../Downloads/Work_Sans/static/WorkSans-Medium.ttf"; sourceTree = "<group>"; };
+		313C63992BDD129700FB5B2A /* WorkSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "WorkSans-SemiBold.ttf"; path = "../../../../../../../Downloads/Work_Sans/static/WorkSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		313C639A2BDD129700FB5B2A /* WorkSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "WorkSans-Regular.ttf"; path = "../../../../../../../Downloads/Work_Sans/static/WorkSans-Regular.ttf"; sourceTree = "<group>"; };
 		3142C4B82BD9A9AA00DB5C44 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		3149051E2BB2ECFC00567802 /* Log-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Log-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		314905212BB2ECFC00567802 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +132,17 @@
 			path = CollectionView;
 			sourceTree = "<group>";
 		};
+		313C63962BDD124900FB5B2A /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				313C63972BDD129700FB5B2A /* WorkSans-Bold.ttf */,
+				313C63982BDD129700FB5B2A /* WorkSans-Medium.ttf */,
+				313C639A2BDD129700FB5B2A /* WorkSans-Regular.ttf */,
+				313C63992BDD129700FB5B2A /* WorkSans-SemiBold.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		314905152BB2ECFC00567802 = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +163,7 @@
 		314905202BB2ECFC00567802 /* Log-Project */ = {
 			isa = PBXGroup;
 			children = (
+				313C63962BDD124900FB5B2A /* Font */,
 				317DC8C52BBEE702006AA1A0 /* LocalNetworking */,
 				314905372BB2ED8200567802 /* Models */,
 				31FAAD732BBC4FEE00878D9D /* Utilities */,
@@ -357,9 +377,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				31C0BFC62BD5583700826DFD /* log.sqlite in Resources */,
+				313C639C2BDD129700FB5B2A /* WorkSans-Medium.ttf in Resources */,
+				313C639D2BDD129700FB5B2A /* WorkSans-SemiBold.ttf in Resources */,
 				3149052E2BB2ECFC00567802 /* LaunchScreen.storyboard in Resources */,
 				3149052B2BB2ECFC00567802 /* Assets.xcassets in Resources */,
 				314905292BB2ECFC00567802 /* Main.storyboard in Resources */,
+				313C639B2BDD129700FB5B2A /* WorkSans-Bold.ttf in Resources */,
+				313C639E2BDD129700FB5B2A /* WorkSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
