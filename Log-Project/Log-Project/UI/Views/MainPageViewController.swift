@@ -25,6 +25,7 @@ class MainPageViewController: UIViewController {
     var alisTransactions: [Transaction] = []
     var satisTransactions: [Transaction] = []
     var searchCoinResult = [Coin]()
+    var searchTransactionData = [Transaction]()
     var isSearching = false
     
     
@@ -47,17 +48,15 @@ class MainPageViewController: UIViewController {
     }
     
     @IBAction func changeSegment(_ sender: UISegmentedControl) {
-        let index = sender.selectedSegmentIndex
-        DispatchQueue.main.async {
-            self.coinTableView.reloadData()
-        }
-        if index == 0  {
+        
+        if sender.selectedSegmentIndex == 0  {
             pieChartHeight.constant = 180
             getMyAssets()
         } else {
             pieChartHeight.constant = 0
             getMyTransactions()
         }
+        filterDataBasedOnSearchAndSegment(searchText: coinSearchBar.text ?? "")
         
     }
     
@@ -70,8 +69,18 @@ class MainPageViewController: UIViewController {
     }
     
     private func fetchTransactionFilter () {
-        alisTransactions = transactionData?.filter { $0.type == "Alis" } ?? []
-        satisTransactions = transactionData?.filter { $0.type == "Satis" } ?? []
+        
+        if coinSegment.selectedSegmentIndex == 1 {
+            if isSearching {
+                alisTransactions = searchTransactionData.filter { $0.type == "Alis" }
+                satisTransactions = searchTransactionData.filter { $0.type == "Satis" }
+            } else {
+                alisTransactions = transactionData?.filter { $0.type == "Alis" } ?? []
+                satisTransactions = transactionData?.filter { $0.type == "Satis" } ?? []
+            }
+            
+        }
+        
     }
     
     private func setupCollectionView() {
@@ -104,8 +113,6 @@ class MainPageViewController: UIViewController {
         }else if segue.identifier == "toMyTransactions" {
             if let transactions = sender as? [Transaction] {
                 let targetVC = segue.destination as! TransactionViewController
-                print("Gonderilen Data")
-                print(transactions)
                 targetVC.transactionData = transactions
             }
         }
@@ -114,7 +121,6 @@ class MainPageViewController: UIViewController {
     func getMyAssets() {
         let firstIndexPath = IndexPath(item: 0, section: 0)
         sliderCollectionView.scrollToItem(at: firstIndexPath, at: .centeredHorizontally, animated: true)
-        
     }
     
     func getMyTransactions() {
@@ -137,6 +143,17 @@ class MainPageViewController: UIViewController {
         
         let decoder = JSONDecoder()
         return encodedData.compactMap { try? decoder.decode(Transaction.self, from: $0) }
+    }
+    
+    private func filterDataBasedOnSearchAndSegment(searchText: String) {
+        if coinSegment.selectedSegmentIndex == 0 {
+            searchCoinResult = searchText.isEmpty ? coinList : coinList.filter { $0.name!.lowercased().contains(searchText.lowercased()) }
+        } else {
+            let filteredTransactions = searchText.isEmpty ? transactionData! : transactionData!.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+            alisTransactions = filteredTransactions.filter { $0.type == "Alis" }
+            satisTransactions = filteredTransactions.filter { $0.type == "Satis" }
+        }
+        coinTableView.reloadData()
     }
 }
 
@@ -165,7 +182,7 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource,Coi
             
             return coinList.count
         }
-   
+        
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -181,62 +198,86 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource,Coi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let index = coinSegment.selectedSegmentIndex
-        
-        if isSearching {
-            if index == 0  {
-                let coin = searchCoinResult[indexPath.row]
-                let viewModel = Coin(symbol:coin.symbol!, name: coin.name!, isFavorite: coin.isFavorite!, id: coin.id!)
-                let cell = tableView.dequeueReusableCell(withIdentifier: "CoinCell") as! CoinCell
-                
-                cell.configure(with: viewModel)
-                cell.cellProtocol = self
-                cell.indexPath = indexPath
-                cell.selectionStyle = .none
-                
-                return cell
-            }else {
-                
-                let transaction = (indexPath.section == 0 ? alisTransactions : satisTransactions)[indexPath.row]
-                if let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as? TransactionCell {
-                    
-                    cell.configure(with: transaction)
-                    return cell // Return a default cell if casting fails
-                } else {
-                    
-                    return UITableViewCell()
-                }
-                
+        if index == 0 {
+            let coin: Coin = isSearching ? searchCoinResult[indexPath.row] : coinList[indexPath.row]
+            let viewModel = Coin(symbol: coin.symbol!, name: coin.name!, isFavorite: coin.isFavorite!, id: coin.id!)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "CoinCell", for: indexPath) as? CoinCell else {
+                return UITableViewCell()
             }
-            return UITableViewCell()
+            cell.configure(with: viewModel)
+            cell.cellProtocol = self
+            cell.indexPath = indexPath
+            cell.selectionStyle = .none
+            return cell
         } else {
-            if index == 0  {
-                let coin = coinList[indexPath.row]
-                let viewModel = Coin(symbol:coin.symbol!, name: coin.name!, isFavorite: coin.isFavorite!, id: coin.id!)
-                let cell = tableView.dequeueReusableCell(withIdentifier: "CoinCell") as! CoinCell
-                
-                cell.configure(with: viewModel)
-                cell.cellProtocol = self
-                cell.indexPath = indexPath
-                cell.selectionStyle = .none
-                
-                return cell
-                
-            } else {
-                
-                let transaction = (indexPath.section == 0 ? alisTransactions : satisTransactions)[indexPath.row]
-                if let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as? TransactionCell {
-                    
-                    cell.configure(with: transaction)
-                    return cell // Return a default cell if casting fails
-                } else {
-                    
-                    return UITableViewCell()
-                }
-                
+            let transactionList = indexPath.section == 0 ? alisTransactions : satisTransactions
+            guard indexPath.row < transactionList.count else {
+                return UITableViewCell()
             }
-            return UITableViewCell()
+            let transaction = transactionList[indexPath.row]
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as? TransactionCell else {
+                return UITableViewCell()
+            }
+            cell.configure(with: transaction)
+            return cell
         }
-       
+        /*
+         if isSearching {
+         
+         if index == 0  {
+         let coin = searchCoinResult[indexPath.row]
+         let viewModel = Coin(symbol:coin.symbol!, name: coin.name!, isFavorite: coin.isFavorite!, id: coin.id!)
+         let cell = tableView.dequeueReusableCell(withIdentifier: "CoinCell") as! CoinCell
+         
+         cell.configure(with: viewModel)
+         cell.cellProtocol = self
+         cell.indexPath = indexPath
+         cell.selectionStyle = .none
+         
+         return cell
+         }else {
+         print("ERlse")
+         let transaction = (indexPath.section == 0 ? alisTransactions : satisTransactions)[indexPath.row]
+         if let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as? TransactionCell {
+         
+         cell.configure(with: transaction)
+         return cell // Return a default cell if casting fails
+         } else {
+         
+         return UITableViewCell()
+         }
+         
+         }
+         return UITableViewCell()
+         } else {
+         if index == 0  {
+         let coin = coinList[indexPath.row]
+         let viewModel = Coin(symbol:coin.symbol!, name: coin.name!, isFavorite: coin.isFavorite!, id: coin.id!)
+         let cell = tableView.dequeueReusableCell(withIdentifier: "CoinCell") as! CoinCell
+         
+         cell.configure(with: viewModel)
+         cell.cellProtocol = self
+         cell.indexPath = indexPath
+         cell.selectionStyle = .none
+         
+         return cell
+         
+         } else {
+         
+         let transaction = (indexPath.section == 0 ? alisTransactions : satisTransactions)[indexPath.row]
+         if let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionCell", for: indexPath) as? TransactionCell {
+         
+         cell.configure(with: transaction)
+         return cell // Return a default cell if casting fails
+         } else {
+         
+         return UITableViewCell()
+         }
+         
+         }
+         return UITableViewCell()
+         }
+         */
     }
     
     // SORULACAK
@@ -268,13 +309,12 @@ extension MainPageViewController: UITableViewDelegate, UITableViewDataSource,Coi
             let confirmAction = UIAlertAction(title: "Kapat", style: .destructive)
             let evetAction = UIAlertAction(title: "Islem Gir", style: .default) { action in
                 if let inputText = alert.textFields?.first?.text {
-                    print("User entered: \(inputText)")
+                    
                     self.present(confirmAlert,animated: true)
                     let newTransaction = Transaction(id: coin.id!,amount: Int(inputText)!,name: coin.name!, price: Double(coin.priceUsd!)! * Double(inputText)!, time: Date().getDateAndHours(),type: "Alis")
                     do {
                         let encoder = JSONEncoder()
                         let data = try encoder.encode(newTransaction)
-                        //var transactionList = UserDefaults.standard.array(forKey: "transactionList") as? [data:] ?? [String:Any]()
                         self.saveTransaction(data)
                     } catch {
                         print("Unable to Encode Note (\(error))")
@@ -323,14 +363,13 @@ extension MainPageViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let pieChart = pieCharts[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SliderCell", for: indexPath) as! SliderCollectionViewCell
-  
+        
         cell.pieChart = pieChart
-
+        
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //let pieChart = pieCharts[indexPath.row]
-        //print(UserDefaults.standard.object(forKey: "transactionList")!)
+
         if indexPath.row == 1 {
             let test = loadTransactions()
             goMyTransactions(transactions: test!)
@@ -344,24 +383,10 @@ extension MainPageViewController: UICollectionViewDelegate, UICollectionViewData
 extension MainPageViewController:UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        if searchText == ""{
-            isSearching = false
-        } else {
-            isSearching = true
-            searchCoinResult = coinList.filter({$0.name!.lowercased().contains(searchText.lowercased())})
-        }
-        
-        
-        coinTableView.reloadData()
+        isSearching = !searchText.isEmpty
+        filterDataBasedOnSearchAndSegment(searchText: searchText)
     }
 }
-struct Transaction:Codable {
-    
-    let id: String
-    let amount:Int
-    let name: String
-    let price: Double
-    let time: String
-    let type: String
-    
-}
+
+
+

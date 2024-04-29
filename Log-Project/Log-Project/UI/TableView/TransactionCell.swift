@@ -32,7 +32,5 @@ class TransactionCell: UITableViewCell {
         TransactionTime.text = viewModel.time
         transactionAmount.text = String(viewModel.amount)
         transactionPrice.text = String(format:"%.2f",viewModel.price)
-        print("cell Zamani")
-        print(viewModel)
     }
 }

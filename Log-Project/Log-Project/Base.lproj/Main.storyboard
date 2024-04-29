@@ -32,8 +32,8 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hIr-X1-B2V">
                                 <rect key="frame" x="110" y="171.33333333333334" width="173" height="32"/>
                                 <segments>
-                                    <segment title="Varliklarim"/>
-                                    <segment title="Islemlerim"/>
+                                    <segment title="Varlıklarım"/>
+                                    <segment title="İşlemlerim"/>
                                 </segments>
                                 <connections>
                                     <action selector="changeSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="bSo-9k-xkV"/>
@@ -177,7 +177,10 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgS-ix-TcV">
-                                                                    <rect key="frame" x="49" y="0.0" width="45.666666666666657" height="20"/>
+                                                                    <rect key="frame" x="49" y="0.0" width="100" height="20"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="100" id="LGx-TX-3XQ"/>
+                                                                    </constraints>
                                                                     <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -191,7 +194,6 @@
                                                                 <constraint firstItem="LgS-ix-TcV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0p2-DU-YyL" secondAttribute="trailing" constant="3.6666666666666643" id="ncv-ue-fcx"/>
                                                                 <constraint firstItem="0p2-DU-YyL" firstAttribute="leading" secondItem="8wM-dB-17V" secondAttribute="leading" constant="3" id="nfx-PW-G5i"/>
                                                                 <constraint firstItem="LgS-ix-TcV" firstAttribute="centerY" secondItem="8wM-dB-17V" secondAttribute="centerY" id="qmq-Fu-s0P"/>
-                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LgS-ix-TcV" secondAttribute="trailing" constant="20" symbolic="YES" id="t3f-Ww-Jg7"/>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xdr-U1-91Q">
@@ -200,7 +202,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adet:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Gl-Hc-3mD">
                                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="20"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="Wrc-xh-mjk"/>
+                                                                        <constraint firstAttribute="width" constant="50" id="Wrc-xh-mjk"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -219,7 +221,6 @@
                                                                 <constraint firstItem="5Gl-Hc-3mD" firstAttribute="baseline" secondItem="JGC-hv-IeY" secondAttribute="baseline" id="Oz4-Ca-0qR"/>
                                                                 <constraint firstAttribute="height" constant="20" id="Ryp-MA-XaP"/>
                                                                 <constraint firstItem="5Gl-Hc-3mD" firstAttribute="leading" secondItem="Xdr-U1-91Q" secondAttribute="leading" id="WZU-SL-hnm"/>
-                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JGC-hv-IeY" secondAttribute="trailing" constant="20" symbolic="YES" id="mwO-hO-4zC"/>
                                                                 <constraint firstItem="JGC-hv-IeY" firstAttribute="leading" secondItem="5Gl-Hc-3mD" secondAttribute="trailing" id="yCn-D0-7ne"/>
                                                             </constraints>
                                                         </view>
@@ -246,7 +247,6 @@
                                                                 <constraint firstItem="jUR-EX-Ml7" firstAttribute="leading" secondItem="5Ph-0y-VCc" secondAttribute="leading" constant="-2" id="E2R-dY-dKQ"/>
                                                                 <constraint firstItem="jUR-EX-Ml7" firstAttribute="top" secondItem="5Ph-0y-VCc" secondAttribute="top" constant="-1" id="TEj-ED-FXG"/>
                                                                 <constraint firstItem="77q-B1-RMi" firstAttribute="leading" secondItem="jUR-EX-Ml7" secondAttribute="trailing" constant="1" id="k1h-Nm-yRJ"/>
-                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="77q-B1-RMi" secondAttribute="trailing" constant="20" symbolic="YES" id="qH0-Vw-gi9"/>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HIa-Fy-76v">
@@ -259,7 +259,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rpu-45-ilh">
-                                                                    <rect key="frame" x="51" y="0.0" width="250" height="20.333333333333329"/>
+                                                                    <rect key="frame" x="51" y="0.0" width="158" height="20"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -268,7 +268,6 @@
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="rpu-45-ilh" secondAttribute="trailing" constant="-54" id="3UO-Zg-hjG"/>
                                                                 <constraint firstItem="gIz-yB-PKN" firstAttribute="top" secondItem="HIa-Fy-76v" secondAttribute="top" id="eTz-KP-Vy9"/>
                                                                 <constraint firstItem="rpu-45-ilh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gIz-yB-PKN" secondAttribute="trailing" constant="3" id="miZ-mb-veK"/>
                                                                 <constraint firstAttribute="height" constant="20" id="uAZ-um-q7p"/>
