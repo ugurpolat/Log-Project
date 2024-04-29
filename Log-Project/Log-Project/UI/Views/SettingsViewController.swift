@@ -15,7 +15,7 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         switchDarkMode.isOn = UserDefaults.standard.bool(forKey: "isDarkMode")
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateForDarkMode), name: NSNotification.Name("didChangeTheme"), object: nil)
         // Do any additional setup after loading the view.
         let line = UIView()
         view.addSubview(line)
@@ -27,15 +27,24 @@ class SettingsViewController: UIViewController {
         
         line.backgroundColor = .gray
     }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    @objc private func updateForDarkMode() {
+        // Code to update the UI components according to the new theme
+        self.view.backgroundColor = UserDefaults.standard.bool(forKey: "isDarkMode") ? .darkGray : .white
+    }
     
     @IBAction func changeToDarkMode(_ sender: UISwitch) {
-        if sender.isOn {
-            UserDefaults.standard.set(sender.isOn, forKey: "isDarkMode")
-        } else {
-            UserDefaults.standard.set(sender.isOn, forKey: "isDarkMode")
-        }
+        UserDefaults.standard.set(sender.isOn, forKey: "isDarkMode")
+        UserDefaults.standard.synchronize()
         
-        
+        NotificationCenter.default.post(name: NSNotification.Name("didChangeTheme"), object: nil)
+        updateInterfaceStyle()
+    }
+    
+    private func updateInterfaceStyle(){
         let isDarkModeEnabled = UserDefaults.standard.bool(forKey: "isDarkMode")
         
         if #available(iOS 13.0, *) {
@@ -44,8 +53,9 @@ class SettingsViewController: UIViewController {
             }
         } else {
             print("iOS version is below 13, no action taken.")
-            }
         }
-         
+    }
+    
+    
     
 }

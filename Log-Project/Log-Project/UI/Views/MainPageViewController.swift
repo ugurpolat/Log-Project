@@ -16,7 +16,7 @@ class MainPageViewController: UIViewController {
     
     @IBOutlet weak var coinSearchBar: UISearchBar!
     var pie_1 = PieChart()
-    var pie_2 = PieChart_2()
+    //var pie_2 = PieChart_2()
     var coinList = [Coin]()
     var pieCharts = [UIView]()
     var viewModel = MainPageViewModel()
@@ -32,11 +32,8 @@ class MainPageViewController: UIViewController {
         super.viewDidLoad()
         
         fetchTransactionFilter()
-        
-        
         setupCollectionView()
         pieCharts.append(pie_1)
-        
         setView()
         
         viewModel.coinList.bind { [weak self] value in
@@ -82,6 +79,7 @@ class MainPageViewController: UIViewController {
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: sliderCollectionView.frame.size.width, height: sliderCollectionView.frame.size.height)
         layout.minimumLineSpacing = 0
+        
         sliderCollectionView.collectionViewLayout = layout
         sliderCollectionView.isPagingEnabled = true
     }
@@ -325,8 +323,9 @@ extension MainPageViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let pieChart = pieCharts[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SliderCell", for: indexPath) as! SliderCollectionViewCell
-        
+  
         cell.pieChart = pieChart
+
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

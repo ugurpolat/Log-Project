@@ -31,7 +31,7 @@ class TransactionCell: UITableViewCell {
         transactionIcon.image = UIImage(named: viewModel.id)
         TransactionTime.text = viewModel.time
         transactionAmount.text = String(viewModel.amount)
-        transactionPrice.text = String(viewModel.price)
+        transactionPrice.text = String(format:"%.2f",viewModel.price)
         print("cell Zamani")
         print(viewModel)
     }
